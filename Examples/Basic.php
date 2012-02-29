@@ -16,7 +16,7 @@ $captch->setPrivateKey('privatekey');
 echo $captcha->html();
 
 // Perform validation (put this inside if ($_POST) {} condition for example)
-$response = $captcha->validate();
+$response = $captcha->check();
 if (!$response->isValid()) {
     echo $response->getError();
 }
