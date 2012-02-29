@@ -36,59 +36,59 @@ namespace Library\Captcha;
  * @subpackage reCaptcha
  */
 class Response {
-	/**
-	 * Is response valid
-	 *
-	 * @var bool $_isValid
-	 */
-	protected $_isValid;
+    /**
+     * Is response valid
+     *
+     * @var bool $_isValid
+     */
+    protected $_isValid;
 
-	/**
-	 * Currently set error message
-	 *
-	 * @var string $_error
-	 */
-	protected $_error;
+    /**
+     * Currently set error message
+     *
+     * @var string $_error
+     */
+    protected $_error;
 
-	/**
-	 * Set flag for a valid response indicator
-	 *
-	 * @param bool $flag
-	 * @return Response
-	 */
-	public function setValid($flag) {
-		$this->_isValid = (bool) $flag;
-		return $this;
-	}
+    /**
+     * Set flag for a valid response indicator
+     *
+     * @param bool $flag
+     * @return Response
+     */
+    public function setValid($flag) {
+        $this->_isValid = (bool) $flag;
+        return $this;
+    }
 
-	/**
-	 * Checks if response is valid (good)
-	 *
-	 * @param void
-	 * @return bool
-	 */
-	public function isValid() {
-		return (bool) $this->_isValid;
-	}
+    /**
+     * Checks if response is valid (good)
+     *
+     * @param void
+     * @return bool
+     */
+    public function isValid() {
+        return (bool) $this->_isValid;
+    }
 
-	/**
-	 * Set error message that should be returned to user
-	 *
-	 * @param string $error
-	 * @return Response
-	 */
-	public function setError($error) {
-		$this->_error = (string) $error;
-		return $this;
-	}
+    /**
+     * Set error message that should be returned to user
+     *
+     * @param string $error
+     * @return Response
+     */
+    public function setError($error) {
+        $this->_error = (string) $error;
+        return $this;
+    }
 
-	/**
-	 * Retrieve currently set error message
-	 *
-	 * @param void
-	 * @return string
-	 */
-	public function getError() {
-		return $this->_error;
-	}
+    /**
+     * Retrieve currently set error message
+     *
+     * @param void
+     * @return string
+     */
+    public function getError() {
+        return $this->_error;
+    }
 }

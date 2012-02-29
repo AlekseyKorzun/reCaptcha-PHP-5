@@ -35,5 +35,5 @@ namespace Library\Captcha;
  * @package library
  * @subpackage reCaptcha
  */
-class Exception {
+class Exception extends \Exception {
 }
