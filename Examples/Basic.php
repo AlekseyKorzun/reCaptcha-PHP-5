@@ -10,7 +10,7 @@ require '../Captcha.php';
 // New captcha instance
 $captcha = new Captcha();
 $captcha->setPublicKey('publickey');
-$captch->setPrivateKey('privatekey');
+$captcha->setPrivateKey('privatekey');
 
 // Output captcha to end user
 echo $captcha->html();
