@@ -1,5 +1,5 @@
 <?php
-namespace Library\Captcha;
+namespace Captcha;
 
 /**
  * Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
