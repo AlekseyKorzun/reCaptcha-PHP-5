@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \Library\Captcha</title>
+<title>phpDocumentor » \Captcha\Captcha</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -19,8 +19,6 @@
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
-<li><a>Namespaces</a></li>
-<li><a href="../namespaces/Library.html"><i class="icon-th"></i> Library</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/library.html"><i class="icon-folder-open"></i> library</a></li>
 </ul>
@@ -85,16 +83,16 @@
 </ul>
 </div>
 <div class="span8">
-<a name="%5CLibrary%5CCaptcha" id="\Library\Captcha"></a><ul class="breadcrumb">
+<a name="%5CCaptcha%5CCaptcha" id="\Captcha\Captcha"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
-<li><a href="../namespaces/Library.html">Library</a></li>
+<li><a href="../namespaces/Captcha.html">Captcha</a></li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/Library.Captcha.html">Captcha</a>
+<span class="divider">\</span><a href="../classes/Captcha.Captcha.html">Captcha</a>
 </li>
 </ul>
-<div href="../classes/Library.Captcha.html" class="element class">
+<div href="../classes/Captcha.Captcha.html" class="element class">
 <p class="short_description">Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
 All rights reserved.</p>
 <div class="details">
@@ -131,7 +129,7 @@ either expressed or implied, of the FreeBSD Project.</p>
 <td><a href="mailto:al.ko@webfoundation.net">Aleksey Korzun</a></td>
 </tr>
 <tr>
-<th><code><a href="../classes/Library.Captcha.Exception.html">\Library\Captcha\Exception</a></code></th>
+<th><code><a href="../classes/Captcha.Exception.html">\Captcha\Exception</a></code></th>
 <td></td>
 </tr>
 <tr>
@@ -143,17 +141,17 @@ either expressed or implied, of the FreeBSD Project.</p>
 <i class="icon-custom icon-method"></i> Methods</h3>
 <a name="check" id="check"></a><div class="element clickable method public check" data-toggle="collapse" data-target=".check .collapse">
 <h2>Checks and validates user's response</h2>
-<pre>check() : <a href="../classes/Library.Captcha.Response.html">\Library\Captcha\Response</a></pre>
+<pre>check() : <a href="../classes/Captcha.Response.html">\Captcha\Response</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
-<th><code><a href="../classes/Library.Captcha.Exception.html">\Library\Captcha\Exception</a></code></th>
+<th><code><a href="../classes/Captcha.Exception.html">\Captcha\Exception</a></code></th>
 <td></td>
 </tr></table>
 <h3>Returns</h3>
-<div class="subelement response"><code><a href="../classes/Library.Captcha.Response.html">\Library\Captcha\Response</a></code></div>
+<div class="subelement response"><code><a href="../classes/Captcha.Response.html">\Captcha\Response</a></code></div>
 </div></div>
 </div>
 <a name="getError" id="getError"></a><div class="element clickable method public getError" data-toggle="collapse" data-target=".getError .collapse">
@@ -194,7 +192,7 @@ either expressed or implied, of the FreeBSD Project.</p>
 <p class="long_description"></p>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
-<th><code><a href="../classes/Library.Captcha.Exception.html">\Library\Captcha\Exception</a></code></th>
+<th><code><a href="../classes/Captcha.Exception.html">\Captcha\Exception</a></code></th>
 <td></td>
 </tr></table>
 <h3>Returns</h3>
@@ -213,7 +211,7 @@ either expressed or implied, of the FreeBSD Project.</p>
 </div>
 <a name="setError" id="setError"></a><div class="element clickable method public setError" data-toggle="collapse" data-target=".setError .collapse">
 <h2>Set public key</h2>
-<pre>setError(string $error) : \Library\reCaptcha</pre>
+<pre>setError(string $error) : \Captcha\reCaptcha</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -223,12 +221,12 @@ either expressed or implied, of the FreeBSD Project.</p>
 <code>string</code>
 </div>
 <h3>Returns</h3>
-<div class="subelement response"><code>\Library\reCaptcha</code></div>
+<div class="subelement response"><code>\Captcha\reCaptcha</code></div>
 </div></div>
 </div>
 <a name="setPrivateKey" id="setPrivateKey"></a><div class="element clickable method public setPrivateKey" data-toggle="collapse" data-target=".setPrivateKey .collapse">
 <h2>Set private key</h2>
-<pre>setPrivateKey(string $key) : \Library\reCaptcha</pre>
+<pre>setPrivateKey(string $key) : \Captcha\reCaptcha</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -238,12 +236,12 @@ either expressed or implied, of the FreeBSD Project.</p>
 <code>string</code>
 </div>
 <h3>Returns</h3>
-<div class="subelement response"><code>\Library\reCaptcha</code></div>
+<div class="subelement response"><code>\Captcha\reCaptcha</code></div>
 </div></div>
 </div>
 <a name="setPublicKey" id="setPublicKey"></a><div class="element clickable method public setPublicKey" data-toggle="collapse" data-target=".setPublicKey .collapse">
 <h2>Set public key</h2>
-<pre>setPublicKey(string $key) : \Library\reCaptcha</pre>
+<pre>setPublicKey(string $key) : \Captcha\reCaptcha</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -253,7 +251,7 @@ either expressed or implied, of the FreeBSD Project.</p>
 <code>string</code>
 </div>
 <h3>Returns</h3>
-<div class="subelement response"><code>\Library\reCaptcha</code></div>
+<div class="subelement response"><code>\Captcha\reCaptcha</code></div>
 </div></div>
 </div>
 <a name="setSsl" id="setSsl"></a><div class="element clickable method public setSsl" data-toggle="collapse" data-target=".setSsl .collapse">
@@ -297,7 +295,7 @@ either expressed or implied, of the FreeBSD Project.</p>
 </div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
-<th><code><a href="../classes/Library.Captcha.Exception.html">\Library\Captcha\Exception</a></code></th>
+<th><code><a href="../classes/Captcha.Exception.html">\Captcha\Exception</a></code></th>
 <td></td>
 </tr></table>
 <h3>Returns</h3>
@@ -357,7 +355,7 @@ either expressed or implied, of the FreeBSD Project.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
-            generated on 2012-08-13T20:05:41-04:00.<br></footer></div>
+            generated on 2012-08-14T08:07:30-04:00.<br></footer></div>
 </div>
 </body>
 </html>
