@@ -1,5 +1,6 @@
 <?php
 namespace Library;
+
 use Library\Captcha\Response;
 use Library\Captcha\Exception;
 
@@ -43,48 +44,56 @@ require	'Captcha/Exception.php';
  * @throws Exception
  * @package library
  */
-class Captcha {
+class Captcha
+{
     /**
      * reCaptcha's API server
-     * @const SERVER
+	 * 
+     * @var string
      */
-    CONST SERVER = 'http://api.recaptcha.net';
+    const SERVER = 'http://api.recaptcha.net';
 
     /**
      * reCaptcha's secure API server
-     * @const SERVER_SECURE
+	 * 
+     * @var string
      */
-    CONST SERVER_SECURE = 'https://api-secure.recaptcha.net';
+    const SERVER_SECURE = 'https://api-secure.recaptcha.net';
 
     /**
-     * reCaptcha's verify  server
-     * @const VERIFY_SERVER
+     * reCaptcha's verify server
+	 * 
+     * @var string
      */
-    CONST VERIFY_SERVER = 'api-verify.recaptcha.net';
+    const VERIFY_SERVER = 'api-verify.recaptcha.net';
 
     /**
      * Private key
-     * @var string $_privateKey
+	 * 
+     * @var string
      */
-    protected $_privateKey;
+    protected $privateKey;
 
     /**
      * Public key
-     * @var string $_publicKey
+	 * 
+     * @var string
      */
-    protected $_publicKey;
+    protected $publicKey;
 
     /**
      * Custom error message to return
-     * @var string $_error
+	 * 
+     * @var string
      */
-    protected $_error;
+    protected $error;
 
     /**
      * Flag to use SSL for our request(s)
-     * @var bool $_isSSL
+	 * 
+     * @var bool
      */
-    protected $_isSSL = false;
+    protected $isSsl = false;
 
     /**
      * Set SSL flag
@@ -92,18 +101,19 @@ class Captcha {
      * @param bool $flag
      * @return void
      */
-    public function setSSL($flag = true) {
-        $this->_isSSL = (bool) $flag;
+    public function setSsl($flag = true)
+    {
+        $this->isSsl = (bool) $flag;
     }
 
     /**
      * Check if SSL is currently enabled
      *
-     * @param void
      * @return bool
      */
-    public function isSSL() {
-        return (bool) $this->_isSSL;
+    public function isSsl()
+    {
+        return (bool) $this->isSsl;
     }
 
     /**
@@ -112,19 +122,20 @@ class Captcha {
      * @param string $key
      * @return reCaptcha
      */
-    public function setPublicKey($key) {
-        $this->_publicKey = $key;
+    public function setPublicKey($key)
+    {
+        $this->publicKey = $key;
         return $this;
     }
 
     /**
      * Retrieve currently set public key
      *
-     * @param void
      * @return string
      */
-    public function getPublicKey() {
-        return $this->_publicKey;
+    public function getPublicKey()
+    {
+        return $this->publicKey;
     }
 
     /**
@@ -133,55 +144,57 @@ class Captcha {
      * @param string $key
      * @return reCaptcha
      */
-    public function setPrivateKey($key) {
-        $this->_privateKey = $key;
+    public function setPrivateKey($key)
+    {
+        $this->privateKey = $key;
         return $this;
     }
 
     /**
      * Retrieve currently set private key
      *
-     * @param void
      * @return string
      */
-    public function getPrivateKey() {
-        return $this->_privateKey;
+    public function getPrivateKey()
+    {
+        return $this->privateKey;
     }
 
     /**
      * Set public key
      *
-     * @param string $key
+     * @param string $error
      * @return reCaptcha
      */
-    public function setError($error) {
-        $this->_error = (string) $error;
+    public function setError($error)
+    {
+        $this->error = (string) $error;
         return $this;
     }
 
     /**
      * Retrieve currently set error
      *
-     * @param void
      * @return string
      */
-    public function getError() {
-        return $this->_error;
+    public function getError()
+    {
+        return $this->error;
     }
 
     /**
      * Generates reCaptcha form to output to your end user
      *
      * @throws Exception
-     * @param void
      * @return string
      */
-    public function html() {
+    public function html()
+    {
         if (!$this->getPublicKey()) {
             throw new Exception('You must set public key provided by reCaptcha');
         }
 
-        if ($this->isSSL()) {
+        if ($this->isSsl()) {
             $server = self::SERVER_SECURE;
         } else {
             $server = self::SERVER;
@@ -202,10 +215,10 @@ class Captcha {
      * Checks and validates user's response
      *
      * @throws Exception
-     * @param void
      * @return Response
      */
-    public function check() {
+    public function check()
+    {
         if (!$this->getPrivateKey()) {
             throw new Exception('You must set private key provided by reCaptcha');
         }
@@ -229,11 +242,14 @@ class Captcha {
             return $response;
         }
 
-        $process = $this->_process(array(
-                                    'privatekey' => $this->getPrivateKey(),
-                                    'remoteip' => $_SERVER['REMOTE_ADDR'],
-                                    'challenge' => $captcha_challenge,
-                                    'response' => $captcha_response));
+        $process = $this->process(
+			array(
+                    'privatekey' => $this->getPrivateKey(),
+                    'remoteip' => $_SERVER['REMOTE_ADDR'],
+                    'challenge' => $captcha_challenge,
+                    'response' => $captcha_response
+				)
+		);
 
         $answers = explode("\n", $process [1]);
 
@@ -254,9 +270,10 @@ class Captcha {
      * @param array $parameters
      * @return string
      */
-    protected function _process($parameters) {
+    protected function process($parameters)
+    {
         // Properly encode parameters
-        $parameters = $this->_encode($parameters);
+        $parameters = $this->encode($parameters);
 
         $request  = "POST /verify HTTP/1.0\r\n";
         $request .= "Host: " . self::VERIFY_SERVER . "\r\n";
@@ -289,7 +306,8 @@ class Captcha {
      * @param array $parameters
      * @return string
      */
-    protected function _encode(array $parameters) {
+    protected function encode(array $parameters)
+    {
         $uri = '';
 
         if ($parameters) {
@@ -303,3 +321,4 @@ class Captcha {
         return $uri;
     }
 }
+

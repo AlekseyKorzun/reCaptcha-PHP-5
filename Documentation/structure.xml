@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a8" title="">
+  <file path="Captcha.php" hash="081cff63e364a8ef42b6a99ca2874e60" package="Default">
+    <namespace-alias name="Response">Library\Captcha\Response</namespace-alias>
+    <namespace-alias name="Exception">Library\Captcha\Exception</namespace-alias>
+    <include line="10" type="Require" package="Default">
+      <name>Captcha/Response.php</name>
+      <docblock line="7">
+        <description><![CDATA[You should be using auto loader, remove this as needed]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+    </include>
+    <include line="11" type="Require" package="Default">
+      <name>Captcha/Exception.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="Library" line="47" package="library">
+      <extends/>
+      <name>Captcha</name>
+      <full_name>\Library\Captcha</full_name>
+      <docblock line="13">
+        <description><![CDATA[Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
+All rights reserved.]]></description>
+        <long-description><![CDATA[<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+
+<ol>
+<li>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</li>
+</ol>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p>The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of the FreeBSD Project.</p>
+
+<p>Proper library for reCaptcha service</p>]]></long-description>
+        <tag line="13" name="author" description="Aleksey Korzun &lt;al.ko@webfoundation.net&gt;"/>
+        <tag line="13" name="throws" description="" type="\Library\Captcha\Exception">
+          <type by_reference="false">\Library\Captcha\Exception</type>
+        </tag>
+        <tag line="13" name="package" description="library"/>
+      </docblock>
+      <constant namespace="Library" line="54" package="library">
+        <name>SERVER</name>
+        <full_name>SERVER</full_name>
+        <value><![CDATA['http://api.recaptcha.net']]></value>
+        <docblock line="49">
+          <description><![CDATA[reCaptcha's API server]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="49" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </constant>
+      <constant namespace="Library" line="61" package="library">
+        <name>SERVER_SECURE</name>
+        <full_name>SERVER_SECURE</full_name>
+        <value><![CDATA['https://api-secure.recaptcha.net']]></value>
+        <docblock line="56">
+          <description><![CDATA[reCaptcha's secure API server]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="56" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </constant>
+      <constant namespace="Library" line="68" package="library">
+        <name>VERIFY_SERVER</name>
+        <full_name>VERIFY_SERVER</full_name>
+        <value><![CDATA['api-verify.recaptcha.net']]></value>
+        <docblock line="63">
+          <description><![CDATA[reCaptcha's verify server]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="63" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </constant>
+      <property final="false" static="false" visibility="protected" line="75" namespace="Library" package="Default">
+        <name>$privateKey</name>
+        <default><![CDATA[]]></default>
+        <docblock line="70">
+          <description><![CDATA[Private key]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="70" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="82" namespace="Library" package="Default">
+        <name>$publicKey</name>
+        <default><![CDATA[]]></default>
+        <docblock line="77">
+          <description><![CDATA[Public key]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="77" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="89" namespace="Library" package="Default">
+        <name>$error</name>
+        <default><![CDATA[]]></default>
+        <docblock line="84">
+          <description><![CDATA[Custom error message to return]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="84" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="96" namespace="Library" package="Default">
+        <name>$isSsl</name>
+        <default><![CDATA[false]]></default>
+        <docblock line="91">
+          <description><![CDATA[Flag to use SSL for our request(s)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="91" name="var" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="104" package="library">
+        <name>setSsl</name>
+        <full_name>setSsl</full_name>
+        <docblock line="98">
+          <description><![CDATA[Set SSL flag]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="98" name="param" description="" type="bool" variable="$flag">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="98" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="104">
+          <name>$flag</name>
+          <default><![CDATA[true]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="114" package="library">
+        <name>isSsl</name>
+        <full_name>isSsl</full_name>
+        <docblock line="109">
+          <description><![CDATA[Check if SSL is currently enabled]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="109" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="125" package="library">
+        <name>setPublicKey</name>
+        <full_name>setPublicKey</full_name>
+        <docblock line="119">
+          <description><![CDATA[Set public key]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="119" name="param" description="" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="119" name="return" description="" type="\Library\reCaptcha">
+            <type by_reference="false">\Library\reCaptcha</type>
+          </tag>
+        </docblock>
+        <argument line="125">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="136" package="library">
+        <name>getPublicKey</name>
+        <full_name>getPublicKey</full_name>
+        <docblock line="131">
+          <description><![CDATA[Retrieve currently set public key]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="131" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="147" package="library">
+        <name>setPrivateKey</name>
+        <full_name>setPrivateKey</full_name>
+        <docblock line="141">
+          <description><![CDATA[Set private key]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="141" name="param" description="" type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="141" name="return" description="" type="\Library\reCaptcha">
+            <type by_reference="false">\Library\reCaptcha</type>
+          </tag>
+        </docblock>
+        <argument line="147">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="158" package="library">
+        <name>getPrivateKey</name>
+        <full_name>getPrivateKey</full_name>
+        <docblock line="153">
+          <description><![CDATA[Retrieve currently set private key]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="153" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="169" package="library">
+        <name>setError</name>
+        <full_name>setError</full_name>
+        <docblock line="163">
+          <description><![CDATA[Set public key]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="163" name="param" description="" type="string" variable="$error">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="163" name="return" description="" type="\Library\reCaptcha">
+            <type by_reference="false">\Library\reCaptcha</type>
+          </tag>
+        </docblock>
+        <argument line="169">
+          <name>$error</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="180" package="library">
+        <name>getError</name>
+        <full_name>getError</full_name>
+        <docblock line="175">
+          <description><![CDATA[Retrieve currently set error]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="175" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="191" package="library">
+        <name>html</name>
+        <full_name>html</full_name>
+        <docblock line="185">
+          <description><![CDATA[Generates reCaptcha form to output to your end user]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="185" name="throws" description="" type="\Library\Captcha\Exception">
+            <type by_reference="false">\Library\Captcha\Exception</type>
+          </tag>
+          <tag line="185" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library" line="220" package="library">
+        <name>check</name>
+        <full_name>check</full_name>
+        <docblock line="214">
+          <description><![CDATA[Checks and validates user's response]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="214" name="throws" description="" type="\Library\Captcha\Exception">
+            <type by_reference="false">\Library\Captcha\Exception</type>
+          </tag>
+          <tag line="214" name="return" description="" type="\Library\Captcha\Response">
+            <type by_reference="false">\Library\Captcha\Response</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Library" line="273" package="library">
+        <name>process</name>
+        <full_name>process</full_name>
+        <docblock line="266">
+          <description><![CDATA[Make a signed validation request to reCaptcha's servers]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="266" name="throws" description="" type="\Library\Captcha\Exception">
+            <type by_reference="false">\Library\Captcha\Exception</type>
+          </tag>
+          <tag line="266" name="param" description="" type="array" variable="$parameters">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="266" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="273">
+          <name>$parameters</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Library" line="309" package="library">
+        <name>encode</name>
+        <full_name>encode</full_name>
+        <docblock line="303">
+          <description><![CDATA[Construct encoded URI string from an array]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="303" name="param" description="" type="array" variable="$parameters">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="303" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="309">
+          <name>$parameters</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Captcha.php</error>
+    </parse_markers>
+  </file>
+  <file path="Captcha/Response.php" hash="f39232201c6703c00d9c13fff06fcc88" package="Default">
+    <class final="false" abstract="false" namespace="Library\Captcha" line="38" package="library\reCaptcha">
+      <extends/>
+      <name>Response</name>
+      <full_name>\Library\Captcha\Response</full_name>
+      <docblock line="4">
+        <description><![CDATA[Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
+All rights reserved.]]></description>
+        <long-description><![CDATA[<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+
+<ol>
+<li>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</li>
+</ol>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p>The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of the FreeBSD Project.</p>
+
+<p>reCaptcha response object</p>]]></long-description>
+        <tag line="4" name="author" description="Aleksey Korzun &lt;al.ko@webfoundation.net&gt;"/>
+        <tag line="4" name="package" description="library"/>
+        <tag line="4" name="subpackage" description="reCaptcha"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="45" namespace="Library\Captcha" package="Default">
+        <name>$isValid</name>
+        <default><![CDATA[]]></default>
+        <docblock line="40">
+          <description><![CDATA[Is response valid]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="var" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="52" namespace="Library\Captcha" package="Default">
+        <name>$error</name>
+        <default><![CDATA[]]></default>
+        <docblock line="47">
+          <description><![CDATA[Currently set error message]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="47" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library\Captcha" line="60" package="library\reCaptcha">
+        <name>setValid</name>
+        <full_name>setValid</full_name>
+        <docblock line="54">
+          <description><![CDATA[Set flag for a valid response indicator]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="54" name="param" description="" type="bool" variable="$flag">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="54" name="return" description="" type="\Library\Captcha\Response">
+            <type by_reference="false">\Library\Captcha\Response</type>
+          </tag>
+        </docblock>
+        <argument line="60">
+          <name>$flag</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library\Captcha" line="71" package="library\reCaptcha">
+        <name>isValid</name>
+        <full_name>isValid</full_name>
+        <docblock line="66">
+          <description><![CDATA[Checks if response is valid (good)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="66" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library\Captcha" line="82" package="library\reCaptcha">
+        <name>setError</name>
+        <full_name>setError</full_name>
+        <docblock line="76">
+          <description><![CDATA[Set error message that should be returned to user]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="76" name="param" description="" type="string" variable="$error">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="76" name="return" description="" type="\Library\Captcha\Response">
+            <type by_reference="false">\Library\Captcha\Response</type>
+          </tag>
+        </docblock>
+        <argument line="82">
+          <name>$error</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Library\Captcha" line="93" package="library\reCaptcha">
+        <name>getError</name>
+        <full_name>getError</full_name>
+        <docblock line="88">
+          <description><![CDATA[Retrieve currently set error message]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="88" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Captcha/Response.php</error>
+    </parse_markers>
+  </file>
+  <file path="Captcha/Exception.php" hash="ac29ad0793893e212ef9f7ed3108c049" package="Default">
+    <class final="false" abstract="false" namespace="Library\Captcha" line="38" package="library\reCaptcha">
+      <extends>\Exception</extends>
+      <name>Exception</name>
+      <full_name>\Library\Captcha\Exception</full_name>
+      <docblock line="4">
+        <description><![CDATA[Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
+All rights reserved.]]></description>
+        <long-description><![CDATA[<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+
+<ol>
+<li>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</li>
+</ol>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<p>The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of the FreeBSD Project.</p>
+
+<p>reCaptcha exception object</p>]]></long-description>
+        <tag line="4" name="author" description="Aleksey Korzun &lt;al.ko@webfoundation.net&gt;"/>
+        <tag line="4" name="package" description="library"/>
+        <tag line="4" name="subpackage" description="reCaptcha"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Captcha/Exception.php</error>
+    </parse_markers>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="library" full_name="library">
+    <package name="reCaptcha" full_name="library\reCaptcha"/>
+  </package>
+  <namespace name="Library" full_name="Library">
+    <namespace name="Captcha" full_name="Library\Captcha"/>
+  </namespace>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>

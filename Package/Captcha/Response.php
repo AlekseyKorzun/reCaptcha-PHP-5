@@ -35,20 +35,21 @@ namespace Library\Captcha;
  * @package library
  * @subpackage reCaptcha
  */
-class Response {
+class Response
+{
     /**
      * Is response valid
      *
-     * @var bool $_isValid
+     * @var bool
      */
-    protected $_isValid;
+    protected $isValid;
 
     /**
      * Currently set error message
      *
-     * @var string $_error
+     * @var string
      */
-    protected $_error;
+    protected $error;
 
     /**
      * Set flag for a valid response indicator
@@ -56,19 +57,20 @@ class Response {
      * @param bool $flag
      * @return Response
      */
-    public function setValid($flag) {
-        $this->_isValid = (bool) $flag;
+    public function setValid($flag)
+    {
+        $this->isValid = (bool) $flag;
         return $this;
     }
 
     /**
      * Checks if response is valid (good)
      *
-     * @param void
      * @return bool
      */
-    public function isValid() {
-        return (bool) $this->_isValid;
+    public function isValid()
+    {
+        return (bool) $this->isValid;
     }
 
     /**
@@ -77,18 +79,20 @@ class Response {
      * @param string $error
      * @return Response
      */
-    public function setError($error) {
-        $this->_error = (string) $error;
+    public function setError($error)
+    {
+        $this->error = (string) $error;
         return $this;
     }
 
     /**
      * Retrieve currently set error message
      *
-     * @param void
      * @return string
      */
-    public function getError() {
-        return $this->_error;
+    public function getError()
+    {
+        return $this->error;
     }
 }
+
