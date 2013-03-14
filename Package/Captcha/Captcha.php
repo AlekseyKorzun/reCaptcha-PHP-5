@@ -45,21 +45,21 @@ class Captcha
 	 *
 	 * @var string
 	 */
-	const SERVER = 'http://api.recaptcha.net';
+	const SERVER = 'http://www.google.com/recaptcha/api';
 
 	/**
 	 * reCaptcha's secure API server
 	 *
 	 * @var string
 	 */
-	const SERVER_SECURE = 'https://api-secure.recaptcha.net';
+	const SERVER_SECURE = 'https://www.google.com/recaptcha/api';
 
 	/**
 	 * reCaptcha's verify server
 	 *
 	 * @var string
 	 */
-	const VERIFY_SERVER = 'api-verify.recaptcha.net';
+	const VERIFY_SERVER = 'www.google.com';
 
 	/**
 	 * Private key
@@ -269,7 +269,7 @@ class Captcha
 		// Properly encode parameters
 		$parameters = $this->encode($parameters);
 
-		$request  = "POST /verify HTTP/1.0\r\n";
+		$request  = "POST /recaptcha/api/verify HTTP/1.0\r\n";
 		$request .= "Host: " . self::VERIFY_SERVER . "\r\n";
 		$request .= "Content-Type: application/x-www-form-urlencoded;\r\n";
 		$request .= "Content-Length: " . strlen($parameters) . "\r\n";
