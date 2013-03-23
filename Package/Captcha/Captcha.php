@@ -219,9 +219,11 @@ class Captcha
 			throw new Exception('You must set private key provided by reCaptcha');
 		}
 		// Skip processing of empty data
-		if ((strlen($captcha_challenge) == 0 || strlen($captcha_response) == 0) && isset($_POST['recaptcha_challenge_field']) && isset($_POST['recaptcha_response_field'])) {
-			$captcha_challenge = $_POST['recaptcha_challenge_field'];
-			$captcha_response = $_POST['recaptcha_response_field'];
+		if (!$captcha_challenge && !$captcha_response) {
+			if (isset($_POST['recaptcha_challenge_field']) && isset($_POST['recaptcha_response_field'])) {
+				$captcha_challenge = $_POST['recaptcha_challenge_field'];
+				$captcha_response = $_POST['recaptcha_response_field'];
+			}
 		}
 
 		// Instance of response object
