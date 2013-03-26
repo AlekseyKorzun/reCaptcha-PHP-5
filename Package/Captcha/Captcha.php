@@ -208,22 +208,22 @@ class Captcha
 	/**
 	 * Checks and validates user's response
 	 *
+	 * @param string $captcha_challenge Optional challenge string. If empty, value from $_POST will be used
+	 * @param string $captcha_response Optional response string. If empty, value from $_POST will be used
 	 * @throws Exception
 	 * @return Response
 	 */
-	public function check()
+	public function check($captcha_challenge = false, $captcha_response = false)
 	{
 		if (!$this->getPrivateKey()) {
 			throw new Exception('You must set private key provided by reCaptcha');
 		}
-
-		$captcha_challenge = false;
-		$captcha_response = false;
-
 		// Skip processing of empty data
-		if (isset($_POST['recaptcha_challenge_field']) && isset($_POST['recaptcha_response_field'])) {
-			$captcha_challenge = $_POST['recaptcha_challenge_field'];
-			$captcha_response = $_POST['recaptcha_response_field'];
+		if (!$captcha_challenge && !$captcha_response) {
+			if (isset($_POST['recaptcha_challenge_field']) && isset($_POST['recaptcha_response_field'])) {
+				$captcha_challenge = $_POST['recaptcha_challenge_field'];
+				$captcha_response = $_POST['recaptcha_response_field'];
+			}
 		}
 
 		// Instance of response object
