@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project version="2.0.0a8" title="">
-  <file path="Captcha.php" hash="fef3a5c4b943b65c0e4096a08b5b9c17" package="Default">
-    <namespace-alias name="Response">Captcha\Response</namespace-alias>
-    <namespace-alias name="Exception">Captcha\Exception</namespace-alias>
+<project version="2.0.0a13" title="">
+  <file path="Captcha.php" hash="0ec4eac37b36afe60c61b303027056d1" package="Default">
     <class final="false" abstract="false" namespace="Captcha" line="41" package="library">
       <extends/>
       <name>Captcha</name>
       <full_name>\Captcha\Captcha</full_name>
       <docblock line="7">
-        <description><![CDATA[Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
-All rights reserved.]]></description>
-        <long-description><![CDATA[<p>Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:</p>
+        <description>Copyright (c) 2012, Aleksey Korzun &lt;al.ko@webfoundation.net&gt;
+All rights reserved.</description>
+        <long-description>&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
 
-<ol>
-<li>Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.</li>
-<li>Redistributions in binary form must reproduce the above copyright notice,
+&lt;ol&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice,
 this list of conditions and the following disclaimer in the documentation
-and/or other materials provided with the distribution.</li>
-</ol>
+and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ol&gt;
 
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
@@ -30,13 +28,13 @@ ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
 LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
 
-<p>The views and conclusions contained in the software and documentation are those
+&lt;p&gt;The views and conclusions contained in the software and documentation are those
 of the authors and should not be interpreted as representing official policies,
-either expressed or implied, of the FreeBSD Project.</p>
+either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
 
-<p>Proper library for reCaptcha service</p>]]></long-description>
+&lt;p&gt;Proper library for reCaptcha service&lt;/p&gt;</long-description>
         <tag line="7" name="author" description="Aleksey Korzun &lt;al.ko@webfoundation.net&gt;"/>
         <tag line="7" name="throws" description="" type="\Captcha\Exception">
           <type by_reference="false">\Captcha\Exception</type>
@@ -46,10 +44,10 @@ either expressed or implied, of the FreeBSD Project.</p>
       <constant namespace="Captcha" line="48" package="library">
         <name>SERVER</name>
         <full_name>SERVER</full_name>
-        <value><![CDATA['http://api.recaptcha.net']]></value>
+        <value>'http://www.google.com/recaptcha/api'</value>
         <docblock line="43">
-          <description><![CDATA[reCaptcha's API server]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>reCaptcha's API server</description>
+          <long-description></long-description>
           <tag line="43" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -58,10 +56,10 @@ either expressed or implied, of the FreeBSD Project.</p>
       <constant namespace="Captcha" line="55" package="library">
         <name>SERVER_SECURE</name>
         <full_name>SERVER_SECURE</full_name>
-        <value><![CDATA['https://api-secure.recaptcha.net']]></value>
+        <value>'https://www.google.com/recaptcha/api'</value>
         <docblock line="50">
-          <description><![CDATA[reCaptcha's secure API server]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>reCaptcha's secure API server</description>
+          <long-description></long-description>
           <tag line="50" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -70,10 +68,10 @@ either expressed or implied, of the FreeBSD Project.</p>
       <constant namespace="Captcha" line="62" package="library">
         <name>VERIFY_SERVER</name>
         <full_name>VERIFY_SERVER</full_name>
-        <value><![CDATA['api-verify.recaptcha.net']]></value>
+        <value>'www.google.com'</value>
         <docblock line="57">
-          <description><![CDATA[reCaptcha's verify server]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>reCaptcha's verify server</description>
+          <long-description></long-description>
           <tag line="57" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -81,10 +79,10 @@ either expressed or implied, of the FreeBSD Project.</p>
       </constant>
       <property final="false" static="false" visibility="protected" line="69" namespace="Captcha" package="Default">
         <name>$privateKey</name>
-        <default><![CDATA[]]></default>
+        <default></default>
         <docblock line="64">
-          <description><![CDATA[Private key]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Private key</description>
+          <long-description></long-description>
           <tag line="64" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -92,10 +90,10 @@ either expressed or implied, of the FreeBSD Project.</p>
       </property>
       <property final="false" static="false" visibility="protected" line="76" namespace="Captcha" package="Default">
         <name>$publicKey</name>
-        <default><![CDATA[]]></default>
+        <default></default>
         <docblock line="71">
-          <description><![CDATA[Public key]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Public key</description>
+          <long-description></long-description>
           <tag line="71" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -103,10 +101,10 @@ either expressed or implied, of the FreeBSD Project.</p>
       </property>
       <property final="false" static="false" visibility="protected" line="83" namespace="Captcha" package="Default">
         <name>$error</name>
-        <default><![CDATA[]]></default>
+        <default></default>
         <docblock line="78">
-          <description><![CDATA[Custom error message to return]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Custom error message to return</description>
+          <long-description></long-description>
           <tag line="78" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -114,10 +112,10 @@ either expressed or implied, of the FreeBSD Project.</p>
       </property>
       <property final="false" static="false" visibility="protected" line="90" namespace="Captcha" package="Default">
         <name>$isSsl</name>
-        <default><![CDATA[false]]></default>
+        <default>false</default>
         <docblock line="85">
-          <description><![CDATA[Flag to use SSL for our request(s)]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Flag to use SSL for our request(s)</description>
+          <long-description></long-description>
           <tag line="85" name="var" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -127,8 +125,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>setSsl</name>
         <full_name>setSsl</full_name>
         <docblock line="92">
-          <description><![CDATA[Set SSL flag]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Set SSL flag</description>
+          <long-description></long-description>
           <tag line="92" name="param" description="" type="bool" variable="$flag">
             <type by_reference="false">bool</type>
           </tag>
@@ -138,7 +136,7 @@ either expressed or implied, of the FreeBSD Project.</p>
         </docblock>
         <argument line="98">
           <name>$flag</name>
-          <default><![CDATA[true]]></default>
+          <default>true</default>
           <type/>
         </argument>
       </method>
@@ -146,8 +144,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>isSsl</name>
         <full_name>isSsl</full_name>
         <docblock line="103">
-          <description><![CDATA[Check if SSL is currently enabled]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Check if SSL is currently enabled</description>
+          <long-description></long-description>
           <tag line="103" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -157,8 +155,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>setPublicKey</name>
         <full_name>setPublicKey</full_name>
         <docblock line="113">
-          <description><![CDATA[Set public key]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Set public key</description>
+          <long-description></long-description>
           <tag line="113" name="param" description="" type="string" variable="$key">
             <type by_reference="false">string</type>
           </tag>
@@ -168,7 +166,7 @@ either expressed or implied, of the FreeBSD Project.</p>
         </docblock>
         <argument line="119">
           <name>$key</name>
-          <default><![CDATA[]]></default>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -176,8 +174,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>getPublicKey</name>
         <full_name>getPublicKey</full_name>
         <docblock line="125">
-          <description><![CDATA[Retrieve currently set public key]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Retrieve currently set public key</description>
+          <long-description></long-description>
           <tag line="125" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -187,8 +185,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>setPrivateKey</name>
         <full_name>setPrivateKey</full_name>
         <docblock line="135">
-          <description><![CDATA[Set private key]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Set private key</description>
+          <long-description></long-description>
           <tag line="135" name="param" description="" type="string" variable="$key">
             <type by_reference="false">string</type>
           </tag>
@@ -198,7 +196,7 @@ either expressed or implied, of the FreeBSD Project.</p>
         </docblock>
         <argument line="141">
           <name>$key</name>
-          <default><![CDATA[]]></default>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -206,8 +204,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>getPrivateKey</name>
         <full_name>getPrivateKey</full_name>
         <docblock line="147">
-          <description><![CDATA[Retrieve currently set private key]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Retrieve currently set private key</description>
+          <long-description></long-description>
           <tag line="147" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -217,8 +215,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>setError</name>
         <full_name>setError</full_name>
         <docblock line="157">
-          <description><![CDATA[Set public key]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Set public key</description>
+          <long-description></long-description>
           <tag line="157" name="param" description="" type="string" variable="$error">
             <type by_reference="false">string</type>
           </tag>
@@ -228,7 +226,7 @@ either expressed or implied, of the FreeBSD Project.</p>
         </docblock>
         <argument line="163">
           <name>$error</name>
-          <default><![CDATA[]]></default>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -236,8 +234,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>getError</name>
         <full_name>getError</full_name>
         <docblock line="169">
-          <description><![CDATA[Retrieve currently set error]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Retrieve currently set error</description>
+          <long-description></long-description>
           <tag line="169" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -247,8 +245,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>html</name>
         <full_name>html</full_name>
         <docblock line="179">
-          <description><![CDATA[Generates reCaptcha form to output to your end user]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Generates reCaptcha form to output to your end user</description>
+          <long-description></long-description>
           <tag line="179" name="throws" description="" type="\Captcha\Exception">
             <type by_reference="false">\Captcha\Exception</type>
           </tag>
@@ -257,12 +255,18 @@ either expressed or implied, of the FreeBSD Project.</p>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="214" package="library">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="216" package="library">
         <name>check</name>
         <full_name>check</full_name>
         <docblock line="208">
-          <description><![CDATA[Checks and validates user's response]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Checks and validates user's response</description>
+          <long-description></long-description>
+          <tag line="208" name="param" description="Optional challenge string. If empty, value from $_POST will be used" type="string" variable="$captcha_challenge">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="208" name="param" description="Optional response string. If empty, value from $_POST will be used" type="string" variable="$captcha_response">
+            <type by_reference="false">string</type>
+          </tag>
           <tag line="208" name="throws" description="" type="\Captcha\Exception">
             <type by_reference="false">\Captcha\Exception</type>
           </tag>
@@ -270,13 +274,23 @@ either expressed or implied, of the FreeBSD Project.</p>
             <type by_reference="false">\Captcha\Response</type>
           </tag>
         </docblock>
+        <argument line="216">
+          <name>$captcha_challenge</name>
+          <default>false</default>
+          <type/>
+        </argument>
+        <argument line="216">
+          <name>$captcha_response</name>
+          <default>false</default>
+          <type/>
+        </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="protected" namespace="Captcha" line="267" package="library">
         <name>process</name>
         <full_name>process</full_name>
         <docblock line="260">
-          <description><![CDATA[Make a signed validation request to reCaptcha's servers]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Make a signed validation request to reCaptcha's servers</description>
+          <long-description></long-description>
           <tag line="260" name="throws" description="" type="\Captcha\Exception">
             <type by_reference="false">\Captcha\Exception</type>
           </tag>
@@ -289,7 +303,7 @@ either expressed or implied, of the FreeBSD Project.</p>
         </docblock>
         <argument line="267">
           <name>$parameters</name>
-          <default><![CDATA[]]></default>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -297,8 +311,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>encode</name>
         <full_name>encode</full_name>
         <docblock line="297">
-          <description><![CDATA[Construct encoded URI string from an array]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Construct encoded URI string from an array</description>
+          <long-description></long-description>
           <tag line="297" name="param" description="" type="array" variable="$parameters">
             <type by_reference="false">array</type>
           </tag>
@@ -308,7 +322,7 @@ either expressed or implied, of the FreeBSD Project.</p>
         </docblock>
         <argument line="303">
           <name>$parameters</name>
-          <default><![CDATA[]]></default>
+          <default></default>
           <type>array</type>
         </argument>
       </method>
@@ -317,26 +331,26 @@ either expressed or implied, of the FreeBSD Project.</p>
       <error line="0" code="50007">No page-level DocBlock was found in file Captcha.php</error>
     </parse_markers>
   </file>
-  <file path="Response.php" hash="3d7c1f181ec13267276ea962b8a889df" package="Default">
+  <file path="Exception.php" hash="a947746c5b06e53b5fa653658b6c020c" package="Default">
     <class final="false" abstract="false" namespace="Captcha" line="38" package="library\reCaptcha">
-      <extends/>
-      <name>Response</name>
-      <full_name>\Captcha\Response</full_name>
+      <extends>\Exception</extends>
+      <name>Exception</name>
+      <full_name>\Captcha\Exception</full_name>
       <docblock line="4">
-        <description><![CDATA[Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
-All rights reserved.]]></description>
-        <long-description><![CDATA[<p>Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:</p>
+        <description>Copyright (c) 2012, Aleksey Korzun &lt;al.ko@webfoundation.net&gt;
+All rights reserved.</description>
+        <long-description>&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
 
-<ol>
-<li>Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.</li>
-<li>Redistributions in binary form must reproduce the above copyright notice,
+&lt;ol&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice,
 this list of conditions and the following disclaimer in the documentation
-and/or other materials provided with the distribution.</li>
-</ol>
+and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ol&gt;
 
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
@@ -345,23 +359,67 @@ ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
 LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
 
-<p>The views and conclusions contained in the software and documentation are those
+&lt;p&gt;The views and conclusions contained in the software and documentation are those
 of the authors and should not be interpreted as representing official policies,
-either expressed or implied, of the FreeBSD Project.</p>
+either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
 
-<p>reCaptcha response object</p>]]></long-description>
+&lt;p&gt;reCaptcha exception object&lt;/p&gt;</long-description>
+        <tag line="4" name="author" description="Aleksey Korzun &lt;al.ko@webfoundation.net&gt;"/>
+        <tag line="4" name="package" description="library"/>
+        <tag line="4" name="subpackage" description="reCaptcha"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Exception.php</error>
+    </parse_markers>
+  </file>
+  <file path="Response.php" hash="3d7c1f181ec13267276ea962b8a889df" package="Default">
+    <class final="false" abstract="false" namespace="Captcha" line="38" package="library\reCaptcha">
+      <extends/>
+      <name>Response</name>
+      <full_name>\Captcha\Response</full_name>
+      <docblock line="4">
+        <description>Copyright (c) 2012, Aleksey Korzun &lt;al.ko@webfoundation.net&gt;
+All rights reserved.</description>
+        <long-description>&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+
+&lt;p&gt;The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
+
+&lt;p&gt;reCaptcha response object&lt;/p&gt;</long-description>
         <tag line="4" name="author" description="Aleksey Korzun &lt;al.ko@webfoundation.net&gt;"/>
         <tag line="4" name="package" description="library"/>
         <tag line="4" name="subpackage" description="reCaptcha"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="45" namespace="Captcha" package="Default">
         <name>$isValid</name>
-        <default><![CDATA[]]></default>
+        <default></default>
         <docblock line="40">
-          <description><![CDATA[Is response valid]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Is response valid</description>
+          <long-description></long-description>
           <tag line="40" name="var" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -369,10 +427,10 @@ either expressed or implied, of the FreeBSD Project.</p>
       </property>
       <property final="false" static="false" visibility="protected" line="52" namespace="Captcha" package="Default">
         <name>$error</name>
-        <default><![CDATA[]]></default>
+        <default></default>
         <docblock line="47">
-          <description><![CDATA[Currently set error message]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Currently set error message</description>
+          <long-description></long-description>
           <tag line="47" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -382,8 +440,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>setValid</name>
         <full_name>setValid</full_name>
         <docblock line="54">
-          <description><![CDATA[Set flag for a valid response indicator]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Set flag for a valid response indicator</description>
+          <long-description></long-description>
           <tag line="54" name="param" description="" type="bool" variable="$flag">
             <type by_reference="false">bool</type>
           </tag>
@@ -393,7 +451,7 @@ either expressed or implied, of the FreeBSD Project.</p>
         </docblock>
         <argument line="60">
           <name>$flag</name>
-          <default><![CDATA[]]></default>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -401,8 +459,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>isValid</name>
         <full_name>isValid</full_name>
         <docblock line="66">
-          <description><![CDATA[Checks if response is valid (good)]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Checks if response is valid (good)</description>
+          <long-description></long-description>
           <tag line="66" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -412,8 +470,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>setError</name>
         <full_name>setError</full_name>
         <docblock line="76">
-          <description><![CDATA[Set error message that should be returned to user]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Set error message that should be returned to user</description>
+          <long-description></long-description>
           <tag line="76" name="param" description="" type="string" variable="$error">
             <type by_reference="false">string</type>
           </tag>
@@ -423,7 +481,7 @@ either expressed or implied, of the FreeBSD Project.</p>
         </docblock>
         <argument line="82">
           <name>$error</name>
-          <default><![CDATA[]]></default>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -431,8 +489,8 @@ either expressed or implied, of the FreeBSD Project.</p>
         <name>getError</name>
         <full_name>getError</full_name>
         <docblock line="88">
-          <description><![CDATA[Retrieve currently set error message]]></description>
-          <long-description><![CDATA[]]></long-description>
+          <description>Retrieve currently set error message</description>
+          <long-description></long-description>
           <tag line="88" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -441,50 +499,6 @@ either expressed or implied, of the FreeBSD Project.</p>
     </class>
     <parse_markers>
       <error line="0" code="50007">No page-level DocBlock was found in file Response.php</error>
-    </parse_markers>
-  </file>
-  <file path="Exception.php" hash="a947746c5b06e53b5fa653658b6c020c" package="Default">
-    <class final="false" abstract="false" namespace="Captcha" line="38" package="library\reCaptcha">
-      <extends>\Exception</extends>
-      <name>Exception</name>
-      <full_name>\Captcha\Exception</full_name>
-      <docblock line="4">
-        <description><![CDATA[Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
-All rights reserved.]]></description>
-        <long-description><![CDATA[<p>Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:</p>
-
-<ol>
-<li>Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.</li>
-<li>Redistributions in binary form must reproduce the above copyright notice,
-this list of conditions and the following disclaimer in the documentation
-and/or other materials provided with the distribution.</li>
-</ol>
-
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
-ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-
-<p>The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies,
-either expressed or implied, of the FreeBSD Project.</p>
-
-<p>reCaptcha exception object</p>]]></long-description>
-        <tag line="4" name="author" description="Aleksey Korzun &lt;al.ko@webfoundation.net&gt;"/>
-        <tag line="4" name="package" description="library"/>
-        <tag line="4" name="subpackage" description="reCaptcha"/>
-      </docblock>
-    </class>
-    <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file Exception.php</error>
     </parse_markers>
   </file>
   <package name="Default" full_name="Default"/>
