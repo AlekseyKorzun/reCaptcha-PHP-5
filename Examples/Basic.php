@@ -15,6 +15,6 @@ echo $captcha->html();
 // Perform validation (put this inside if ($_POST) {} condition for example)
 $response = $captcha->check();
 if (!$response->isValid()) {
-	echo $response->getError();
+    echo $response->getError();
 }
 

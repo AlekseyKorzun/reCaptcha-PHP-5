@@ -40,279 +40,279 @@ use Captcha\Exception;
  */
 class Captcha
 {
-	/**
-	 * reCaptcha's API server
-	 *
-	 * @var string
-	 */
-	const SERVER = 'http://www.google.com/recaptcha/api';
+    /**
+     * reCaptcha's API server
+     *
+     * @var string
+     */
+    const SERVER = 'http://www.google.com/recaptcha/api';
 
-	/**
-	 * reCaptcha's secure API server
-	 *
-	 * @var string
-	 */
-	const SERVER_SECURE = 'https://www.google.com/recaptcha/api';
+    /**
+     * reCaptcha's secure API server
+     *
+     * @var string
+     */
+    const SERVER_SECURE = 'https://www.google.com/recaptcha/api';
 
-	/**
-	 * reCaptcha's verify server
-	 *
-	 * @var string
-	 */
-	const VERIFY_SERVER = 'www.google.com';
+    /**
+     * reCaptcha's verify server
+     *
+     * @var string
+     */
+    const VERIFY_SERVER = 'www.google.com';
 
-	/**
-	 * Private key
-	 *
-	 * @var string
-	 */
-	protected $privateKey;
+    /**
+     * Private key
+     *
+     * @var string
+     */
+    protected $privateKey;
 
-	/**
-	 * Public key
-	 *
-	 * @var string
-	 */
-	protected $publicKey;
+    /**
+     * Public key
+     *
+     * @var string
+     */
+    protected $publicKey;
 
-	/**
-	 * Custom error message to return
-	 *
-	 * @var string
-	 */
-	protected $error;
+    /**
+     * Custom error message to return
+     *
+     * @var string
+     */
+    protected $error;
 
-	/**
-	 * Flag to use SSL for our request(s)
-	 *
-	 * @var bool
-	 */
-	protected $isSsl = false;
+    /**
+     * Flag to use SSL for our request(s)
+     *
+     * @var bool
+     */
+    protected $isSsl = false;
 
-	/**
-	 * Set SSL flag
-	 *
-	 * @param bool $flag
-	 * @return void
-	 */
-	public function setSsl($flag = true)
-	{
-		$this->isSsl = (bool) $flag;
-	}
+    /**
+     * Set SSL flag
+     *
+     * @param bool $flag
+     * @return void
+     */
+    public function setSsl($flag = true)
+    {
+        $this->isSsl = (bool) $flag;
+    }
 
-	/**
-	 * Check if SSL is currently enabled
-	 *
-	 * @return bool
-	 */
-	public function isSsl()
-	{
-		return (bool) $this->isSsl;
-	}
+    /**
+     * Check if SSL is currently enabled
+     *
+     * @return bool
+     */
+    public function isSsl()
+    {
+        return (bool) $this->isSsl;
+    }
 
-	/**
-	 * Set public key
-	 *
-	 * @param string $key
-	 * @return reCaptcha
-	 */
-	public function setPublicKey($key)
-	{
-		$this->publicKey = $key;
-		return $this;
-	}
+    /**
+     * Set public key
+     *
+     * @param string $key
+     * @return reCaptcha
+     */
+    public function setPublicKey($key)
+    {
+        $this->publicKey = $key;
+        return $this;
+    }
 
-	/**
-	 * Retrieve currently set public key
-	 *
-	 * @return string
-	 */
-	public function getPublicKey()
-	{
-		return $this->publicKey;
-	}
+    /**
+     * Retrieve currently set public key
+     *
+     * @return string
+     */
+    public function getPublicKey()
+    {
+        return $this->publicKey;
+    }
 
-	/**
-	 * Set private key
-	 *
-	 * @param string $key
-	 * @return reCaptcha
-	 */
-	public function setPrivateKey($key)
-	{
-		$this->privateKey = $key;
-		return $this;
-	}
+    /**
+     * Set private key
+     *
+     * @param string $key
+     * @return reCaptcha
+     */
+    public function setPrivateKey($key)
+    {
+        $this->privateKey = $key;
+        return $this;
+    }
 
-	/**
-	 * Retrieve currently set private key
-	 *
-	 * @return string
-	 */
-	public function getPrivateKey()
-	{
-		return $this->privateKey;
-	}
+    /**
+     * Retrieve currently set private key
+     *
+     * @return string
+     */
+    public function getPrivateKey()
+    {
+        return $this->privateKey;
+    }
 
-	/**
-	 * Set public key
-	 *
-	 * @param string $error
-	 * @return reCaptcha
-	 */
-	public function setError($error)
-	{
-		$this->error = (string) $error;
-		return $this;
-	}
+    /**
+     * Set public key
+     *
+     * @param string $error
+     * @return reCaptcha
+     */
+    public function setError($error)
+    {
+        $this->error = (string) $error;
+        return $this;
+    }
 
-	/**
-	 * Retrieve currently set error
-	 *
-	 * @return string
-	 */
-	public function getError()
-	{
-		return $this->error;
-	}
+    /**
+     * Retrieve currently set error
+     *
+     * @return string
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
 
-	/**
-	 * Generates reCaptcha form to output to your end user
-	 *
-	 * @throws Exception
-	 * @return string
-	 */
-	public function html()
-	{
-		if (!$this->getPublicKey()) {
-			throw new Exception('You must set public key provided by reCaptcha');
-		}
+    /**
+     * Generates reCaptcha form to output to your end user
+     *
+     * @throws Exception
+     * @return string
+     */
+    public function html()
+    {
+        if (!$this->getPublicKey()) {
+            throw new Exception('You must set public key provided by reCaptcha');
+        }
 
-		if ($this->isSsl()) {
-			$server = self::SERVER_SECURE;
-		} else {
-			$server = self::SERVER;
-		}
+        if ($this->isSsl()) {
+            $server = self::SERVER_SECURE;
+        } else {
+            $server = self::SERVER;
+        }
 
-		$error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
+        $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
 
-		return '<script type="text/javascript" src="' . $server . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
+        return '<script type="text/javascript" src="' . $server . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
 
-		<noscript>
-			<iframe src="' . $server . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
-			<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
-			<input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
-		</noscript>';
-	}
+        <noscript>
+            <iframe src="' . $server . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
+            <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+            <input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
+        </noscript>';
+    }
 
-	/**
-	 * Checks and validates user's response
-	 *
-	 * @param string $captcha_challenge Optional challenge string. If empty, value from $_POST will be used
-	 * @param string $captcha_response Optional response string. If empty, value from $_POST will be used
-	 * @throws Exception
-	 * @return Response
-	 */
-	public function check($captcha_challenge = false, $captcha_response = false)
-	{
-		if (!$this->getPrivateKey()) {
-			throw new Exception('You must set private key provided by reCaptcha');
-		}
-		// Skip processing of empty data
-		if (!$captcha_challenge && !$captcha_response) {
-			if (isset($_POST['recaptcha_challenge_field']) && isset($_POST['recaptcha_response_field'])) {
-				$captcha_challenge = $_POST['recaptcha_challenge_field'];
-				$captcha_response = $_POST['recaptcha_response_field'];
-			}
-		}
+    /**
+     * Checks and validates user's response
+     *
+     * @param string $captcha_challenge Optional challenge string. If empty, value from $_POST will be used
+     * @param string $captcha_response Optional response string. If empty, value from $_POST will be used
+     * @throws Exception
+     * @return Response
+     */
+    public function check($captcha_challenge = false, $captcha_response = false)
+    {
+        if (!$this->getPrivateKey()) {
+            throw new Exception('You must set private key provided by reCaptcha');
+        }
+        // Skip processing of empty data
+        if (!$captcha_challenge && !$captcha_response) {
+            if (isset($_POST['recaptcha_challenge_field']) && isset($_POST['recaptcha_response_field'])) {
+                $captcha_challenge = $_POST['recaptcha_challenge_field'];
+                $captcha_response = $_POST['recaptcha_response_field'];
+            }
+        }
 
-		// Instance of response object
-		$response = new Response();
+        // Instance of response object
+        $response = new Response();
 
-		// Discard SPAM submissions
-		if (strlen($captcha_challenge) == 0 || strlen($captcha_response) == 0) {
-			$response->setValid(false);
-			$response->setError('Incorrect-captcha-sol');
-			return $response;
-		}
+        // Discard SPAM submissions
+        if (strlen($captcha_challenge) == 0 || strlen($captcha_response) == 0) {
+            $response->setValid(false);
+            $response->setError('Incorrect-captcha-sol');
+            return $response;
+        }
 
-		$process = $this->process(
-			array(
-					'privatekey' => $this->getPrivateKey(),
-					'remoteip' => $_SERVER['REMOTE_ADDR'],
-					'challenge' => $captcha_challenge,
-					'response' => $captcha_response
-				)
-		);
+        $process = $this->process(
+            array(
+                    'privatekey' => $this->getPrivateKey(),
+                    'remoteip' => $_SERVER['REMOTE_ADDR'],
+                    'challenge' => $captcha_challenge,
+                    'response' => $captcha_response
+                )
+        );
 
-		$answers = explode("\n", $process [1]);
+        $answers = explode("\n", $process [1]);
 
-		if (trim($answers[0]) == 'true') {
-			$response->setValid(true);
-		} else {
-			$response->setValid(false);
-			$response->setError($answers[1]);
-		}
+        if (trim($answers[0]) == 'true') {
+            $response->setValid(true);
+        } else {
+            $response->setValid(false);
+            $response->setError($answers[1]);
+        }
 
-		return $response;
-	}
+        return $response;
+    }
 
-	/**
-	 * Make a signed validation request to reCaptcha's servers
-	 *
-	 * @throws Exception
-	 * @param array $parameters
-	 * @return string
-	 */
-	protected function process($parameters)
-	{
-		// Properly encode parameters
-		$parameters = $this->encode($parameters);
+    /**
+     * Make a signed validation request to reCaptcha's servers
+     *
+     * @throws Exception
+     * @param array $parameters
+     * @return string
+     */
+    protected function process($parameters)
+    {
+        // Properly encode parameters
+        $parameters = $this->encode($parameters);
 
-		$request  = "POST /recaptcha/api/verify HTTP/1.0\r\n";
-		$request .= "Host: " . self::VERIFY_SERVER . "\r\n";
-		$request .= "Content-Type: application/x-www-form-urlencoded;\r\n";
-		$request .= "Content-Length: " . strlen($parameters) . "\r\n";
-		$request .= "User-Agent: reCAPTCHA/PHP5\r\n";
-		$request .= "\r\n";
-		$request .= $parameters;
+        $request  = "POST /recaptcha/api/verify HTTP/1.0\r\n";
+        $request .= "Host: " . self::VERIFY_SERVER . "\r\n";
+        $request .= "Content-Type: application/x-www-form-urlencoded;\r\n";
+        $request .= "Content-Length: " . strlen($parameters) . "\r\n";
+        $request .= "User-Agent: reCAPTCHA/PHP5\r\n";
+        $request .= "\r\n";
+        $request .= $parameters;
 
-		if (false == ($socket = @fsockopen(self::VERIFY_SERVER, 80))) {
-			throw new Exception('Could not open socket to: ' . self::VERIFY_SERVER);
-		}
+        if (false == ($socket = @fsockopen(self::VERIFY_SERVER, 80))) {
+            throw new Exception('Could not open socket to: ' . self::VERIFY_SERVER);
+        }
 
-		fwrite($socket, $request);
+        fwrite($socket, $request);
 
-		$response = '';
+        $response = '';
 
-		while (!feof($socket) ) {
-			$response .= fgets($socket, 1160);
-		}
+        while (!feof($socket) ) {
+            $response .= fgets($socket, 1160);
+        }
 
-		fclose($socket);
+        fclose($socket);
 
-		return explode("\r\n\r\n", $response, 2);
-	}
+        return explode("\r\n\r\n", $response, 2);
+    }
 
-	/**
-	 * Construct encoded URI string from an array
-	 *
-	 * @param array $parameters
-	 * @return string
-	 */
-	protected function encode(array $parameters)
-	{
-		$uri = '';
+    /**
+     * Construct encoded URI string from an array
+     *
+     * @param array $parameters
+     * @return string
+     */
+    protected function encode(array $parameters)
+    {
+        $uri = '';
 
-		if ($parameters) {
-			foreach ($parameters as $parameter => $value) {
-				$uri .= $parameter . '=' . urlencode(stripslashes($value)) . '&';
-			}
-		}
+        if ($parameters) {
+            foreach ($parameters as $parameter => $value) {
+                $uri .= $parameter . '=' . urlencode(stripslashes($value)) . '&';
+            }
+        }
 
-		$uri = substr($uri, 0, strlen($uri)-1);
+        $uri = substr($uri, 0, strlen($uri)-1);
 
-		return $uri;
-	}
+        return $uri;
+    }
 }
 
