@@ -45,13 +45,6 @@ class Captcha
      *
      * @var string
      */
-
-    /**
-     * reCaptcha's secure API server
-     *
-     * @var string
-     */
-    const SERVER_SECURE = 'https://www.google.com/recaptcha/api';
     const SERVER = '//www.google.com/recaptcha/api';
 
     /**
@@ -81,34 +74,6 @@ class Captcha
      * @var string
      */
     protected $error;
-
-    /**
-     * Flag to use SSL for our request(s)
-     *
-     * @var bool
-     */
-    protected $isSsl = false;
-
-    /**
-     * Set SSL flag
-     *
-     * @param bool $flag
-     * @return void
-     */
-    public function setSsl($flag = true)
-    {
-        $this->isSsl = (bool) $flag;
-    }
-
-    /**
-     * Check if SSL is currently enabled
-     *
-     * @return bool
-     */
-    public function isSsl()
-    {
-        return (bool) $this->isSsl;
-    }
 
     /**
      * Set public key
@@ -186,12 +151,6 @@ class Captcha
     {
         if (!$this->getPublicKey()) {
             throw new Exception('You must set public key provided by reCaptcha');
-        }
-
-        if ($this->isSsl()) {
-            $server = self::SERVER_SECURE;
-        } else {
-            $server = self::SERVER;
         }
 
         $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
