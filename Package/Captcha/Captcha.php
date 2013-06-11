@@ -76,6 +76,14 @@ class Captcha
     protected $error;
 
     /**
+     * The theme we use. The default theme is red, but you can change it using setTheme()
+     * @see https://developers.google.com/recaptcha/docs/customization
+     *
+     * @var string
+     */
+    protected $theme = 'red';
+
+    /**
      * Set public key
      *
      * @param string $key
@@ -155,7 +163,9 @@ class Captcha
 
         $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
 
-        return '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
+        return
+            '<script> var RecaptchaOptions = {theme: "' . $this->theme . '"};</script>' .
+            '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
 
         <noscript>
             <iframe src="' . self::SERVER . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
@@ -272,6 +282,11 @@ class Captcha
         $uri = substr($uri, 0, strlen($uri)-1);
 
         return $uri;
+    }
+
+    public function setTheme($theme)
+    {
+        $this->theme = $theme;
     }
 }
 
