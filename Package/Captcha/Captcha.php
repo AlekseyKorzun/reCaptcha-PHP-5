@@ -45,7 +45,6 @@ class Captcha
      *
      * @var string
      */
-    const SERVER = 'http://www.google.com/recaptcha/api';
 
     /**
      * reCaptcha's secure API server
@@ -53,6 +52,7 @@ class Captcha
      * @var string
      */
     const SERVER_SECURE = 'https://www.google.com/recaptcha/api';
+    const SERVER = '//www.google.com/recaptcha/api';
 
     /**
      * reCaptcha's verify server
@@ -196,10 +196,10 @@ class Captcha
 
         $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
 
-        return '<script type="text/javascript" src="' . $server . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
+        return '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
 
         <noscript>
-            <iframe src="' . $server . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
+            <iframe src="' . self::SERVER . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
             <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
             <input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
         </noscript>';
