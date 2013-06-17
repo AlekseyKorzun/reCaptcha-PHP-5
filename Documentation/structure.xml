@@ -47,7 +47,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <value>'//www.google.com/recaptcha/api'</value>
         <docblock line="43">
           <description>reCaptcha's API server</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="43" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -59,7 +59,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <value>'www.google.com'</value>
         <docblock line="50">
           <description>reCaptcha's verify server</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="50" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -67,10 +67,10 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       </constant>
       <property final="false" static="false" visibility="protected" line="62" namespace="Captcha" package="Default">
         <name>$privateKey</name>
-        <default></default>
+        <default/>
         <docblock line="57">
           <description>Private key</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="57" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -78,10 +78,10 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       </property>
       <property final="false" static="false" visibility="protected" line="69" namespace="Captcha" package="Default">
         <name>$publicKey</name>
-        <default></default>
+        <default/>
         <docblock line="64">
           <description>Public key</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="64" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -89,10 +89,10 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       </property>
       <property final="false" static="false" visibility="protected" line="76" namespace="Captcha" package="Default">
         <name>$error</name>
-        <default></default>
+        <default/>
         <docblock line="71">
           <description>Custom error message to return</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="71" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -103,7 +103,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>setPublicKey</full_name>
         <docblock line="78">
           <description>Set public key</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="78" name="param" description="" type="string" variable="$key">
             <type by_reference="false">string</type>
           </tag>
@@ -113,7 +113,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         </docblock>
         <argument line="84">
           <name>$key</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -122,7 +122,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>getPublicKey</full_name>
         <docblock line="90">
           <description>Retrieve currently set public key</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="90" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -133,7 +133,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>setPrivateKey</full_name>
         <docblock line="100">
           <description>Set private key</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="100" name="param" description="" type="string" variable="$key">
             <type by_reference="false">string</type>
           </tag>
@@ -143,7 +143,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         </docblock>
         <argument line="106">
           <name>$key</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -152,7 +152,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>getPrivateKey</full_name>
         <docblock line="112">
           <description>Retrieve currently set private key</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="112" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -163,7 +163,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>setError</full_name>
         <docblock line="122">
           <description>Set public key</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="122" name="param" description="" type="string" variable="$error">
             <type by_reference="false">string</type>
           </tag>
@@ -173,7 +173,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         </docblock>
         <argument line="128">
           <name>$error</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -182,7 +182,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>getError</full_name>
         <docblock line="134">
           <description>Retrieve currently set error</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="134" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -193,7 +193,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>html</full_name>
         <docblock line="144">
           <description>Generates reCaptcha form to output to your end user</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="144" name="throws" description="" type="\Captcha\Exception">
             <type by_reference="false">\Captcha\Exception</type>
           </tag>
@@ -207,7 +207,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>check</full_name>
         <docblock line="167">
           <description>Checks and validates user's response</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="167" name="param" description="Optional challenge string. If empty, value from $_POST will be used" type="string" variable="$captcha_challenge">
             <type by_reference="false">string</type>
           </tag>
@@ -237,7 +237,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>process</full_name>
         <docblock line="219">
           <description>Make a signed validation request to reCaptcha's servers</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="219" name="throws" description="" type="\Captcha\Exception">
             <type by_reference="false">\Captcha\Exception</type>
           </tag>
@@ -250,7 +250,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         </docblock>
         <argument line="226">
           <name>$parameters</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -259,7 +259,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>encode</full_name>
         <docblock line="256">
           <description>Construct encoded URI string from an array</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="256" name="param" description="" type="array" variable="$parameters">
             <type by_reference="false">array</type>
           </tag>
@@ -269,7 +269,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         </docblock>
         <argument line="262">
           <name>$parameters</name>
-          <default></default>
+          <default/>
           <type>array</type>
         </argument>
       </method>
@@ -363,10 +363,10 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       </docblock>
       <property final="false" static="false" visibility="protected" line="45" namespace="Captcha" package="Default">
         <name>$isValid</name>
-        <default></default>
+        <default/>
         <docblock line="40">
           <description>Is response valid</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="40" name="var" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -374,10 +374,10 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       </property>
       <property final="false" static="false" visibility="protected" line="52" namespace="Captcha" package="Default">
         <name>$error</name>
-        <default></default>
+        <default/>
         <docblock line="47">
           <description>Currently set error message</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="47" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -388,7 +388,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>setValid</full_name>
         <docblock line="54">
           <description>Set flag for a valid response indicator</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="54" name="param" description="" type="bool" variable="$flag">
             <type by_reference="false">bool</type>
           </tag>
@@ -398,7 +398,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         </docblock>
         <argument line="60">
           <name>$flag</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -407,7 +407,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>isValid</full_name>
         <docblock line="66">
           <description>Checks if response is valid (good)</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="66" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -418,7 +418,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>setError</full_name>
         <docblock line="76">
           <description>Set error message that should be returned to user</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="76" name="param" description="" type="string" variable="$error">
             <type by_reference="false">string</type>
           </tag>
@@ -428,7 +428,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         </docblock>
         <argument line="82">
           <name>$error</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -437,7 +437,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>getError</full_name>
         <docblock line="88">
           <description>Retrieve currently set error message</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="88" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
