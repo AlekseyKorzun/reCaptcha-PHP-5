@@ -61,11 +61,9 @@
 <li class="method public "><a href="#method_getPrivateKey" title="getPrivateKey :: Retrieve currently set private key"><span class="description">Retrieve currently set private key</span><pre>getPrivateKey()</pre></a></li>
 <li class="method public "><a href="#method_getPublicKey" title="getPublicKey :: Retrieve currently set public key"><span class="description">Retrieve currently set public key</span><pre>getPublicKey()</pre></a></li>
 <li class="method public "><a href="#method_html" title="html :: Generates reCaptcha form to output to your end user"><span class="description">Generates reCaptcha form to output to your end user</span><pre>html()</pre></a></li>
-<li class="method public "><a href="#method_isSsl" title="isSsl :: Check if SSL is currently enabled"><span class="description">Check if SSL is currently enabled</span><pre>isSsl()</pre></a></li>
 <li class="method public "><a href="#method_setError" title="setError :: Set public key"><span class="description">Set public key</span><pre>setError()</pre></a></li>
 <li class="method public "><a href="#method_setPrivateKey" title="setPrivateKey :: Set private key"><span class="description">Set private key</span><pre>setPrivateKey()</pre></a></li>
 <li class="method public "><a href="#method_setPublicKey" title="setPublicKey :: Set public key"><span class="description">Set public key</span><pre>setPublicKey()</pre></a></li>
-<li class="method public "><a href="#method_setSsl" title="setSsl :: Set SSL flag"><span class="description">Set SSL flag</span><pre>setSsl()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header protected">» Protected
@@ -81,7 +79,6 @@
 <li class="nav-header protected">» Protected
                     <ul>
 <li class="property protected "><a href="#property_error" title="$error :: Custom error message to return"><span class="description"></span><pre>$error</pre></a></li>
-<li class="property protected "><a href="#property_isSsl" title="$isSsl :: Flag to use SSL for our request(s)"><span class="description"></span><pre>$isSsl</pre></a></li>
 <li class="property protected "><a href="#property_privateKey" title="$privateKey :: Private key"><span class="description"></span><pre>$privateKey</pre></a></li>
 <li class="property protected "><a href="#property_publicKey" title="$publicKey :: Public key"><span class="description"></span><pre>$publicKey</pre></a></li>
 </ul>
@@ -90,7 +87,6 @@
 <i class="icon-custom icon-constant"></i> Constants
                     <ul>
 <li class="constant  "><a href="#constant_SERVER" title="SERVER :: reCaptcha's API server"><span class="description">reCaptcha's API server</span><pre>SERVER</pre></a></li>
-<li class="constant  "><a href="#constant_SERVER_SECURE" title="SERVER_SECURE :: reCaptcha's secure API server"><span class="description">reCaptcha's secure API server</span><pre>SERVER_SECURE</pre></a></li>
 <li class="constant  "><a href="#constant_VERIFY_SERVER" title="VERIFY_SERVER :: reCaptcha's verify server"><span class="description">reCaptcha's verify server</span><pre>VERIFY_SERVER</pre></a></li>
 </ul>
 </li>
@@ -222,16 +218,6 @@ either expressed or implied, of the FreeBSD Project.</p>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method_isSsl"></a><div class="element clickable method public method_isSsl" data-toggle="collapse" data-target=".method_isSsl .collapse">
-<h2>Check if SSL is currently enabled</h2>
-<pre>isSsl() : bool</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>bool</code></div>
-</div></div>
-</div>
 <a id="method_setError"></a><div class="element clickable method public method_setError" data-toggle="collapse" data-target=".method_setError .collapse">
 <h2>Set public key</h2>
 <pre>setError(string $error) : \Captcha\reCaptcha</pre>
@@ -277,19 +263,6 @@ either expressed or implied, of the FreeBSD Project.</p>
 <div class="subelement response"><code>\Captcha\reCaptcha</code></div>
 </div></div>
 </div>
-<a id="method_setSsl"></a><div class="element clickable method public method_setSsl" data-toggle="collapse" data-target=".method_setSsl .collapse">
-<h2>Set SSL flag</h2>
-<pre>setSsl(bool $flag) : void</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$flag</h4>
-<code>bool</code>
-</div>
-</div></div>
-</div>
 <a id="method_encode"></a><div class="element clickable method protected method_encode" data-toggle="collapse" data-target=".method_encode .collapse">
 <h2>Construct encoded URI string from an array</h2>
 <pre>encode(array $parameters) : string</pre>
@@ -333,12 +306,6 @@ either expressed or implied, of the FreeBSD Project.</p>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_isSsl"> </a><div class="element clickable property protected property_isSsl" data-toggle="collapse" data-target=".property_isSsl .collapse">
-<h2></h2>
-<pre>$isSsl : bool</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
 <a id="property_privateKey"> </a><div class="element clickable property protected property_privateKey" data-toggle="collapse" data-target=".property_privateKey .collapse">
 <h2></h2>
 <pre>$privateKey : string</pre>
@@ -359,12 +326,6 @@ either expressed or implied, of the FreeBSD Project.</p>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_SERVER_SECURE"> </a><div class="element clickable constant  constant_SERVER_SECURE" data-toggle="collapse" data-target=".constant_SERVER_SECURE .collapse">
-<h2>reCaptcha's secure API server</h2>
-<pre>SERVER_SECURE : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
 <a id="constant_VERIFY_SERVER"> </a><div class="element clickable constant  constant_VERIFY_SERVER" data-toggle="collapse" data-target=".constant_VERIFY_SERVER .collapse">
 <h2>reCaptcha's verify server</h2>
 <pre>VERIFY_SERVER : string</pre>
@@ -378,7 +339,7 @@ either expressed or implied, of the FreeBSD Project.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a13</a> and<br>
-            generated on 2013-04-07T15:47:49-04:00.<br></footer></div>
+            generated on 2013-06-17T05:37:13+02:00.<br></footer></div>
 </div>
 </body>
 </html>

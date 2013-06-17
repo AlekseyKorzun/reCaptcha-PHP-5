@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a13" title="">
-  <file path="Captcha.php" hash="0ec4eac37b36afe60c61b303027056d1" package="Default">
+  <file path="Captcha.php" hash="fdcde1b7f241275f9b2e34b2bf53e9ee" package="Default">
     <class final="false" abstract="false" namespace="Captcha" line="41" package="library">
       <extends/>
       <name>Captcha</name>
@@ -44,285 +44,232 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       <constant namespace="Captcha" line="48" package="library">
         <name>SERVER</name>
         <full_name>SERVER</full_name>
-        <value>'http://www.google.com/recaptcha/api'</value>
+        <value>'//www.google.com/recaptcha/api'</value>
         <docblock line="43">
           <description>reCaptcha's API server</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="43" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </constant>
       <constant namespace="Captcha" line="55" package="library">
-        <name>SERVER_SECURE</name>
-        <full_name>SERVER_SECURE</full_name>
-        <value>'https://www.google.com/recaptcha/api'</value>
+        <name>VERIFY_SERVER</name>
+        <full_name>VERIFY_SERVER</full_name>
+        <value>'www.google.com'</value>
         <docblock line="50">
-          <description>reCaptcha's secure API server</description>
-          <long-description></long-description>
+          <description>reCaptcha's verify server</description>
+          <long-description/>
           <tag line="50" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </constant>
-      <constant namespace="Captcha" line="62" package="library">
-        <name>VERIFY_SERVER</name>
-        <full_name>VERIFY_SERVER</full_name>
-        <value>'www.google.com'</value>
+      <property final="false" static="false" visibility="protected" line="62" namespace="Captcha" package="Default">
+        <name>$privateKey</name>
+        <default/>
         <docblock line="57">
-          <description>reCaptcha's verify server</description>
-          <long-description></long-description>
+          <description>Private key</description>
+          <long-description/>
           <tag line="57" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-      </constant>
+      </property>
       <property final="false" static="false" visibility="protected" line="69" namespace="Captcha" package="Default">
-        <name>$privateKey</name>
-        <default></default>
+        <name>$publicKey</name>
+        <default/>
         <docblock line="64">
-          <description>Private key</description>
-          <long-description></long-description>
+          <description>Public key</description>
+          <long-description/>
           <tag line="64" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
       <property final="false" static="false" visibility="protected" line="76" namespace="Captcha" package="Default">
-        <name>$publicKey</name>
-        <default></default>
+        <name>$error</name>
+        <default/>
         <docblock line="71">
-          <description>Public key</description>
-          <long-description></long-description>
+          <description>Custom error message to return</description>
+          <long-description/>
           <tag line="71" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="83" namespace="Captcha" package="Default">
-        <name>$error</name>
-        <default></default>
-        <docblock line="78">
-          <description>Custom error message to return</description>
-          <long-description></long-description>
-          <tag line="78" name="var" description="" type="string">
-            <type by_reference="false">string</type>
-          </tag>
-        </docblock>
-      </property>
-      <property final="false" static="false" visibility="protected" line="90" namespace="Captcha" package="Default">
-        <name>$isSsl</name>
-        <default>false</default>
-        <docblock line="85">
-          <description>Flag to use SSL for our request(s)</description>
-          <long-description></long-description>
-          <tag line="85" name="var" description="" type="bool">
-            <type by_reference="false">bool</type>
-          </tag>
-        </docblock>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="98" package="library">
-        <name>setSsl</name>
-        <full_name>setSsl</full_name>
-        <docblock line="92">
-          <description>Set SSL flag</description>
-          <long-description></long-description>
-          <tag line="92" name="param" description="" type="bool" variable="$flag">
-            <type by_reference="false">bool</type>
-          </tag>
-          <tag line="92" name="return" description="" type="void">
-            <type by_reference="false">void</type>
-          </tag>
-        </docblock>
-        <argument line="98">
-          <name>$flag</name>
-          <default>true</default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="108" package="library">
-        <name>isSsl</name>
-        <full_name>isSsl</full_name>
-        <docblock line="103">
-          <description>Check if SSL is currently enabled</description>
-          <long-description></long-description>
-          <tag line="103" name="return" description="" type="bool">
-            <type by_reference="false">bool</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="119" package="library">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="84" package="library">
         <name>setPublicKey</name>
         <full_name>setPublicKey</full_name>
-        <docblock line="113">
+        <docblock line="78">
           <description>Set public key</description>
-          <long-description></long-description>
-          <tag line="113" name="param" description="" type="string" variable="$key">
+          <long-description/>
+          <tag line="78" name="param" description="" type="string" variable="$key">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="113" name="return" description="" type="\Captcha\reCaptcha">
+          <tag line="78" name="return" description="" type="\Captcha\reCaptcha">
             <type by_reference="false">\Captcha\reCaptcha</type>
           </tag>
         </docblock>
-        <argument line="119">
+        <argument line="84">
           <name>$key</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="130" package="library">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="95" package="library">
         <name>getPublicKey</name>
         <full_name>getPublicKey</full_name>
-        <docblock line="125">
+        <docblock line="90">
           <description>Retrieve currently set public key</description>
-          <long-description></long-description>
-          <tag line="125" name="return" description="" type="string">
+          <long-description/>
+          <tag line="90" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="141" package="library">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="106" package="library">
         <name>setPrivateKey</name>
         <full_name>setPrivateKey</full_name>
-        <docblock line="135">
+        <docblock line="100">
           <description>Set private key</description>
-          <long-description></long-description>
-          <tag line="135" name="param" description="" type="string" variable="$key">
+          <long-description/>
+          <tag line="100" name="param" description="" type="string" variable="$key">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="135" name="return" description="" type="\Captcha\reCaptcha">
+          <tag line="100" name="return" description="" type="\Captcha\reCaptcha">
             <type by_reference="false">\Captcha\reCaptcha</type>
           </tag>
         </docblock>
-        <argument line="141">
+        <argument line="106">
           <name>$key</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="152" package="library">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="117" package="library">
         <name>getPrivateKey</name>
         <full_name>getPrivateKey</full_name>
-        <docblock line="147">
+        <docblock line="112">
           <description>Retrieve currently set private key</description>
-          <long-description></long-description>
-          <tag line="147" name="return" description="" type="string">
+          <long-description/>
+          <tag line="112" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="163" package="library">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="128" package="library">
         <name>setError</name>
         <full_name>setError</full_name>
-        <docblock line="157">
+        <docblock line="122">
           <description>Set public key</description>
-          <long-description></long-description>
-          <tag line="157" name="param" description="" type="string" variable="$error">
+          <long-description/>
+          <tag line="122" name="param" description="" type="string" variable="$error">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="157" name="return" description="" type="\Captcha\reCaptcha">
+          <tag line="122" name="return" description="" type="\Captcha\reCaptcha">
             <type by_reference="false">\Captcha\reCaptcha</type>
           </tag>
         </docblock>
-        <argument line="163">
+        <argument line="128">
           <name>$error</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="174" package="library">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="139" package="library">
         <name>getError</name>
         <full_name>getError</full_name>
-        <docblock line="169">
+        <docblock line="134">
           <description>Retrieve currently set error</description>
-          <long-description></long-description>
-          <tag line="169" name="return" description="" type="string">
+          <long-description/>
+          <tag line="134" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="185" package="library">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="150" package="library">
         <name>html</name>
         <full_name>html</full_name>
-        <docblock line="179">
+        <docblock line="144">
           <description>Generates reCaptcha form to output to your end user</description>
-          <long-description></long-description>
-          <tag line="179" name="throws" description="" type="\Captcha\Exception">
+          <long-description/>
+          <tag line="144" name="throws" description="" type="\Captcha\Exception">
             <type by_reference="false">\Captcha\Exception</type>
           </tag>
-          <tag line="179" name="return" description="" type="string">
+          <tag line="144" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="216" package="library">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Captcha" line="175" package="library">
         <name>check</name>
         <full_name>check</full_name>
-        <docblock line="208">
+        <docblock line="167">
           <description>Checks and validates user's response</description>
-          <long-description></long-description>
-          <tag line="208" name="param" description="Optional challenge string. If empty, value from $_POST will be used" type="string" variable="$captcha_challenge">
+          <long-description/>
+          <tag line="167" name="param" description="Optional challenge string. If empty, value from $_POST will be used" type="string" variable="$captcha_challenge">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="208" name="param" description="Optional response string. If empty, value from $_POST will be used" type="string" variable="$captcha_response">
+          <tag line="167" name="param" description="Optional response string. If empty, value from $_POST will be used" type="string" variable="$captcha_response">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="208" name="throws" description="" type="\Captcha\Exception">
+          <tag line="167" name="throws" description="" type="\Captcha\Exception">
             <type by_reference="false">\Captcha\Exception</type>
           </tag>
-          <tag line="208" name="return" description="" type="\Captcha\Response">
+          <tag line="167" name="return" description="" type="\Captcha\Response">
             <type by_reference="false">\Captcha\Response</type>
           </tag>
         </docblock>
-        <argument line="216">
+        <argument line="175">
           <name>$captcha_challenge</name>
           <default>false</default>
           <type/>
         </argument>
-        <argument line="216">
+        <argument line="175">
           <name>$captcha_response</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Captcha" line="267" package="library">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Captcha" line="226" package="library">
         <name>process</name>
         <full_name>process</full_name>
-        <docblock line="260">
+        <docblock line="219">
           <description>Make a signed validation request to reCaptcha's servers</description>
-          <long-description></long-description>
-          <tag line="260" name="throws" description="" type="\Captcha\Exception">
+          <long-description/>
+          <tag line="219" name="throws" description="" type="\Captcha\Exception">
             <type by_reference="false">\Captcha\Exception</type>
           </tag>
-          <tag line="260" name="param" description="" type="array" variable="$parameters">
+          <tag line="219" name="param" description="" type="array" variable="$parameters">
             <type by_reference="false">array</type>
           </tag>
-          <tag line="260" name="return" description="" type="string">
+          <tag line="219" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="267">
+        <argument line="226">
           <name>$parameters</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Captcha" line="303" package="library">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Captcha" line="262" package="library">
         <name>encode</name>
         <full_name>encode</full_name>
-        <docblock line="297">
+        <docblock line="256">
           <description>Construct encoded URI string from an array</description>
-          <long-description></long-description>
-          <tag line="297" name="param" description="" type="array" variable="$parameters">
+          <long-description/>
+          <tag line="256" name="param" description="" type="array" variable="$parameters">
             <type by_reference="false">array</type>
           </tag>
-          <tag line="297" name="return" description="" type="string">
+          <tag line="256" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="303">
+        <argument line="262">
           <name>$parameters</name>
-          <default></default>
+          <default/>
           <type>array</type>
         </argument>
       </method>
@@ -331,7 +278,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       <error line="0" code="50007">No page-level DocBlock was found in file Captcha.php</error>
     </parse_markers>
   </file>
-  <file path="Exception.php" hash="a947746c5b06e53b5fa653658b6c020c" package="Default">
+  <file path="Exception.php" hash="e1365c35cd20564e87e34089dac83666" package="Default">
     <class final="false" abstract="false" namespace="Captcha" line="38" package="library\reCaptcha">
       <extends>\Exception</extends>
       <name>Exception</name>
@@ -375,7 +322,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       <error line="0" code="50007">No page-level DocBlock was found in file Exception.php</error>
     </parse_markers>
   </file>
-  <file path="Response.php" hash="3d7c1f181ec13267276ea962b8a889df" package="Default">
+  <file path="Response.php" hash="aed1a50fc1a2b58fd77aaf6e54b9457c" package="Default">
     <class final="false" abstract="false" namespace="Captcha" line="38" package="library\reCaptcha">
       <extends/>
       <name>Response</name>
@@ -416,10 +363,10 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       </docblock>
       <property final="false" static="false" visibility="protected" line="45" namespace="Captcha" package="Default">
         <name>$isValid</name>
-        <default></default>
+        <default/>
         <docblock line="40">
           <description>Is response valid</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="40" name="var" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -427,10 +374,10 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
       </property>
       <property final="false" static="false" visibility="protected" line="52" namespace="Captcha" package="Default">
         <name>$error</name>
-        <default></default>
+        <default/>
         <docblock line="47">
           <description>Currently set error message</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="47" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -441,7 +388,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>setValid</full_name>
         <docblock line="54">
           <description>Set flag for a valid response indicator</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="54" name="param" description="" type="bool" variable="$flag">
             <type by_reference="false">bool</type>
           </tag>
@@ -451,7 +398,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         </docblock>
         <argument line="60">
           <name>$flag</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -460,7 +407,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>isValid</full_name>
         <docblock line="66">
           <description>Checks if response is valid (good)</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="66" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -471,7 +418,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>setError</full_name>
         <docblock line="76">
           <description>Set error message that should be returned to user</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="76" name="param" description="" type="string" variable="$error">
             <type by_reference="false">string</type>
           </tag>
@@ -481,7 +428,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         </docblock>
         <argument line="82">
           <name>$error</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -490,7 +437,7 @@ either expressed or implied, of the FreeBSD Project.&lt;/p&gt;
         <full_name>getError</full_name>
         <docblock line="88">
           <description>Retrieve currently set error message</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="88" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
