@@ -45,14 +45,7 @@ class Captcha
      *
      * @var string
      */
-    const SERVER = 'http://www.google.com/recaptcha/api';
-
-    /**
-     * reCaptcha's secure API server
-     *
-     * @var string
-     */
-    const SERVER_SECURE = 'https://www.google.com/recaptcha/api';
+    const SERVER = '//www.google.com/recaptcha/api';
 
     /**
      * reCaptcha's verify server
@@ -81,34 +74,6 @@ class Captcha
      * @var string
      */
     protected $error;
-
-    /**
-     * Flag to use SSL for our request(s)
-     *
-     * @var bool
-     */
-    protected $isSsl = false;
-
-    /**
-     * Set SSL flag
-     *
-     * @param bool $flag
-     * @return void
-     */
-    public function setSsl($flag = true)
-    {
-        $this->isSsl = (bool) $flag;
-    }
-
-    /**
-     * Check if SSL is currently enabled
-     *
-     * @return bool
-     */
-    public function isSsl()
-    {
-        return (bool) $this->isSsl;
-    }
 
     /**
      * Set public key
@@ -188,18 +153,12 @@ class Captcha
             throw new Exception('You must set public key provided by reCaptcha');
         }
 
-        if ($this->isSsl()) {
-            $server = self::SERVER_SECURE;
-        } else {
-            $server = self::SERVER;
-        }
-
         $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
 
-        return '<script type="text/javascript" src="' . $server . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
+        return '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
 
         <noscript>
-            <iframe src="' . $server . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
+            <iframe src="' . self::SERVER . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
             <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
             <input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
         </noscript>';
