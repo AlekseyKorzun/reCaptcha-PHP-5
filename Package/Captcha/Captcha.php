@@ -286,8 +286,32 @@ class Captcha
         return $uri;
     }
 
+    /**
+     * An array of supported themes.
+     * @see https://developers.google.com/recaptcha/docs/customization
+     */
+    private static $VALID_THEMES = ['red', 'white', 'blackglass', 'clean'];
+
+    /**
+     * Returns a boolean indicating if a theme name is valid
+     * @param  string  $theme
+     * @return boolean
+     */
+    private static function isValidTheme($theme) {
+        return in_array($theme, self::$VALID_THEMES);
+    }
+
+    /**
+     * Sets the theme to use.
+     * @param string $theme
+     */
     public function setTheme($theme)
     {
+        if (!self::isValidTheme($theme))
+        {
+            throw new \RuntimeException("Theme {$theme} is not valid. Please use one of [" . join(', ', self::$VALID_THEMES) . "]");
+        }
+
         $this->theme = $theme;
     }
 }
