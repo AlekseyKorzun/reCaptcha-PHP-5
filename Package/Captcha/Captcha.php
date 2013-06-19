@@ -81,7 +81,7 @@ class Captcha
      *
      * @var string
      */
-    protected $theme = 'red';
+    protected $theme = null;
 
     /**
      * Set public key
@@ -163,8 +163,10 @@ class Captcha
 
         $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
 
+        $themeConfiguration = ($this->theme) ? '<script> var RecaptchaOptions = {theme: "' . $this->theme . '"};</script>' : '';
+
         return
-            '<script> var RecaptchaOptions = {theme: "' . $this->theme . '"};</script>' .
+            $themeConfiguration .
             '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
 
         <noscript>
