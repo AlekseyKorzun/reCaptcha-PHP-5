@@ -84,6 +84,14 @@ class Captcha
     protected $theme = null;
 
     /**
+     * An array of supported themes.
+     *
+     * @var array
+     * @see https://developers.google.com/recaptcha/docs/customization
+     */
+    private static $VALID_THEMES = array('red', 'white', 'blackglass', 'clean');
+
+    /**
      * Set public key
      *
      * @param string $key
@@ -163,11 +171,9 @@ class Captcha
 
         $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
 
-        $themeConfiguration = ($this->theme) ? '<script> var RecaptchaOptions = {theme: "' . $this->theme . '"};</script>' : '';
+        $theme = ($this->theme) ? '<script> var RecaptchaOptions = {theme: "' . $this->theme . '"};</script>' : '';
 
-        return
-            $themeConfiguration .
-            '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
+        return $theme . '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
 
         <noscript>
             <iframe src="' . self::SERVER . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
@@ -287,29 +293,24 @@ class Captcha
     }
 
     /**
-     * An array of supported themes.
-     * @see https://developers.google.com/recaptcha/docs/customization
-     */
-    private static $VALID_THEMES = ['red', 'white', 'blackglass', 'clean'];
-
-    /**
      * Returns a boolean indicating if a theme name is valid
+     *
      * @param  string  $theme
-     * @return boolean
+     * @return bool
      */
-    private static function isValidTheme($theme) {
+    private static function isValidTheme($theme)
+    {
         return in_array($theme, self::$VALID_THEMES);
     }
 
     /**
      * Sets the theme to use.
+     *
      * @param string $theme
      */
-    public function setTheme($theme)
-    {
-        if (!self::isValidTheme($theme))
-        {
-            throw new \RuntimeException("Theme {$theme} is not valid. Please use one of [" . join(', ', self::$VALID_THEMES) . "]");
+    public function setTheme($theme) {
+        if (!self::isValidTheme($theme)) {
+            throw new \RuntimeException('Theme ' . $theme . ' is not valid. Please use one of [' . join(', ', self::$VALID_THEMES) . "]");
         }
 
         $this->theme = $theme;
