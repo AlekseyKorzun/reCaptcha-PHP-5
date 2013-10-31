@@ -13,12 +13,29 @@ Feel free to extend and modify it to fit your frameworks / applications needs.
 Usage
 -----
 
+### Composer install
+You can install via composer:
+- visit http://getcomposer.org to install composer on your system;
+- create a composer.json file in your project root:
+
+```
+{
+  "require": {
+      "recaptcha/php5": "v1.0.0"
+  }
+}
+```
+- download and install the package with `composer install`;
+- add this line to your application's `index.php` file:
+
+```php
+<?php
+require 'vendor/autoload.php';
+```
+### Manual install
+
 If you have your own autoloader, simply update namespaces and drop the files
 into your frameworks library.
-
-For people that do not have that setup, you can visit http://getcomposer.org to install
-composer on your system. After installation simply run `composer install` in parent
-directory of this distribution to generate vendor/ directory with a cross system autoloader.
 
 Please see Examples directory for a simple run down of functionality.
 
