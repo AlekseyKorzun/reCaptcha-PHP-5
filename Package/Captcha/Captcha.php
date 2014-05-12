@@ -94,7 +94,6 @@ class Captcha
         return $this;
     }
 
-
     /**
      * Retrieve currently set public key
      *
@@ -142,15 +141,15 @@ class Captcha
     /**
      * Get remote IP
      *
-     * @return string $remoteIp
+     * @return string
      */
     public function getRemoteIp()
     {
         if ($this->remoteIp) {
             return $this->remoteIp;
-        }else {
-            return $_SERVER['REMOTE_ADDR'];
         }
+        return $_SERVER['REMOTE_ADDR'];
+
     }
 
     /**
