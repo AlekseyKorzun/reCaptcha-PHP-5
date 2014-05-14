@@ -149,7 +149,6 @@ class Captcha
             return $this->remoteIp;
         }
         return $_SERVER['REMOTE_ADDR'];
-
     }
 
     /**
