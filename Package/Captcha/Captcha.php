@@ -55,6 +55,13 @@ class Captcha
     const VERIFY_SERVER = 'www.google.com';
 
     /**
+     * The Remote IP Address
+     *
+     * @var string
+     */
+    protected $remoteIp;
+
+    /**
      * Private key
      *
      * @var string
@@ -120,7 +127,32 @@ class Captcha
     }
 
     /**
-     * Set public key
+     * Set remote IP
+     *
+     * @param string $ip
+     * @return reCaptcha
+     */
+    public function setRemoteIp($ip)
+    {
+        $this->remoteIp = $ip;
+        return $this;
+    }
+
+    /**
+     * Get remote IP
+     *
+     * @return string
+     */
+    public function getRemoteIp()
+    {
+        if ($this->remoteIp) {
+            return $this->remoteIp;
+        }
+        return $_SERVER['REMOTE_ADDR'];
+    }
+
+    /**
+     * Set error string
      *
      * @param string $error
      * @return reCaptcha
@@ -167,8 +199,8 @@ class Captcha
     /**
      * Checks and validates user's response
      *
-     * @param string $captcha_challenge Optional challenge string. If empty, value from $_POST will be used
-     * @param string $captcha_response Optional response string. If empty, value from $_POST will be used
+     * @param bool|string $captcha_challenge Optional challenge string. If empty, value from $_POST will be used
+     * @param bool|string $captcha_response Optional response string. If empty, value from $_POST will be used
      * @throws Exception
      * @return Response
      */
@@ -198,7 +230,7 @@ class Captcha
         $process = $this->process(
             array(
                     'privatekey' => $this->getPrivateKey(),
-                    'remoteip' => $_SERVER['REMOTE_ADDR'],
+                    'remoteip' => $this->getRemoteIp(),
                     'challenge' => $captcha_challenge,
                     'response' => $captcha_response
                 )
