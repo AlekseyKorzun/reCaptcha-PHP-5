@@ -2,7 +2,7 @@
 namespace Captcha;
 
 /**
- * Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
+ * Copyright (c) 2012, Aleksey Korzun <aleksey@webfoundation.net>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,7 +31,7 @@ namespace Captcha;
  *
  * reCaptcha exception object
  *
- * @author Aleksey Korzun <al.ko@webfoundation.net>
+ * @author Aleksey Korzun <aleksey@webfoundation.net>
  * @package library
  * @subpackage reCaptcha
  */

@@ -5,7 +5,7 @@ use Captcha\Response;
 use Captcha\Exception;
 
 /**
- * Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
+ * Copyright (c) 2012, Aleksey Korzun <aleksey@webfoundation.net>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@ use Captcha\Exception;
  *
  * Proper library for reCaptcha service
  *
- * @author Aleksey Korzun <al.ko@webfoundation.net>
+ * @author Aleksey Korzun <aleksey@webfoundation.net>
  * @throws Exception
  * @package library
  */
@@ -84,19 +84,24 @@ class Captcha
 
     /**
      * The theme we use. The default theme is red, but you can change it using setTheme()
-     * @see https://developers.google.com/recaptcha/docs/customization
      *
      * @var string
+     * @see https://developers.google.com/recaptcha/docs/customization
      */
     protected $theme = null;
 
     /**
      * An array of supported themes.
      *
-     * @var array
+     * @var string[]
      * @see https://developers.google.com/recaptcha/docs/customization
      */
-    private static $VALID_THEMES = array('red', 'white', 'blackglass', 'clean');
+    protected static $themes = array(
+        'red',
+        'white',
+        'blackglass',
+        'clean'
+    );
 
     /**
      * Set public key
@@ -203,7 +208,12 @@ class Captcha
 
         $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
 
-        $theme = ($this->theme) ? '<script> var RecaptchaOptions = {theme: "' . $this->theme . '"};</script>' : '';
+        $theme = null;
+
+        // If user specified a reCaptcha theme, output it as one of the options
+        if ($this->theme) {
+            $theme = '<script> var RecaptchaOptions = {theme: "' . $this->theme . '"};</script>';
+        }
 
         return $theme . '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
 
@@ -247,11 +257,11 @@ class Captcha
 
         $process = $this->process(
             array(
-                    'privatekey' => $this->getPrivateKey(),
-                    'remoteip' => $this->getRemoteIp(),
-                    'challenge' => $captcha_challenge,
-                    'response' => $captcha_response
-                )
+                'privatekey' => $this->getPrivateKey(),
+                'remoteip' => $this->getRemoteIp(),
+                'challenge' => $captcha_challenge,
+                'response' => $captcha_response
+            )
         );
 
         $answers = explode("\n", $process [1]);
@@ -327,22 +337,27 @@ class Captcha
     /**
      * Returns a boolean indicating if a theme name is valid
      *
-     * @param  string  $theme
+     * @param string $theme
      * @return bool
      */
-    private static function isValidTheme($theme)
+    protected static function isValidTheme($theme)
     {
-        return in_array($theme, self::$VALID_THEMES);
+        return (bool) in_array($theme, self::$themes);
     }
 
     /**
-     * Sets the theme to use.
+     * Set a reCaptcha theme
      *
      * @param string $theme
+     * @throws Exception
+     * @see https://developers.google.com/recaptcha/docs/customization
      */
-    public function setTheme($theme) {
+    public function setTheme($theme)
+    {
         if (!self::isValidTheme($theme)) {
-            throw new \RuntimeException('Theme ' . $theme . ' is not valid. Please use one of [' . join(', ', self::$VALID_THEMES) . "]");
+            throw new Exception(
+                'Theme ' . $theme . ' is not valid. Please use one of [' . join(', ', self::$themes) . ']'
+            );
         }
 
         $this->theme = $theme;
