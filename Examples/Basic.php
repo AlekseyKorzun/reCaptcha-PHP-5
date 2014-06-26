@@ -9,6 +9,12 @@ $captcha = new Captcha\Captcha();
 $captcha->setPublicKey('publickey');
 $captcha->setPrivateKey('privatekey');
 
+// set a remote IP if the remote IP can not be found via $_SERVER['REMOTE_ADDR']
+if (!isset($_SERVER['REMOTE_ADDR'])) {
+    $captcha->setRemoteIp('192.168.1.1');
+}
+
+
 // Output captcha to end user
 echo $captcha->html();
 

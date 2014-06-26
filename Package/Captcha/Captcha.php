@@ -5,7 +5,7 @@ use Captcha\Response;
 use Captcha\Exception;
 
 /**
- * Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
+ * Copyright (c) 2012, Aleksey Korzun <aleksey@webfoundation.net>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@ use Captcha\Exception;
  *
  * Proper library for reCaptcha service
  *
- * @author Aleksey Korzun <al.ko@webfoundation.net>
+ * @author Aleksey Korzun <aleksey@webfoundation.net>
  * @throws Exception
  * @package library
  */
@@ -53,6 +53,13 @@ class Captcha
      * @var string
      */
     const VERIFY_SERVER = 'www.google.com';
+
+    /**
+     * The Remote IP Address
+     *
+     * @var string
+     */
+    protected $remoteIp;
 
     /**
      * Private key
@@ -74,6 +81,27 @@ class Captcha
      * @var string
      */
     protected $error;
+
+    /**
+     * The theme we use. The default theme is red, but you can change it using setTheme()
+     *
+     * @var string
+     * @see https://developers.google.com/recaptcha/docs/customization
+     */
+    protected $theme = null;
+
+    /**
+     * An array of supported themes.
+     *
+     * @var string[]
+     * @see https://developers.google.com/recaptcha/docs/customization
+     */
+    protected static $themes = array(
+        'red',
+        'white',
+        'blackglass',
+        'clean'
+    );
 
     /**
      * Set public key
@@ -120,7 +148,32 @@ class Captcha
     }
 
     /**
-     * Set public key
+     * Set remote IP
+     *
+     * @param string $ip
+     * @return reCaptcha
+     */
+    public function setRemoteIp($ip)
+    {
+        $this->remoteIp = $ip;
+        return $this;
+    }
+
+    /**
+     * Get remote IP
+     *
+     * @return string
+     */
+    public function getRemoteIp()
+    {
+        if ($this->remoteIp) {
+            return $this->remoteIp;
+        }
+        return $_SERVER['REMOTE_ADDR'];
+    }
+
+    /**
+     * Set error string
      *
      * @param string $error
      * @return reCaptcha
@@ -155,7 +208,14 @@ class Captcha
 
         $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
 
-        return '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
+        $theme = null;
+
+        // If user specified a reCaptcha theme, output it as one of the options
+        if ($this->theme) {
+            $theme = '<script> var RecaptchaOptions = {theme: "' . $this->theme . '"};</script>';
+        }
+
+        return $theme . '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
 
         <noscript>
             <iframe src="' . self::SERVER . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
@@ -167,8 +227,8 @@ class Captcha
     /**
      * Checks and validates user's response
      *
-     * @param string $captcha_challenge Optional challenge string. If empty, value from $_POST will be used
-     * @param string $captcha_response Optional response string. If empty, value from $_POST will be used
+     * @param bool|string $captcha_challenge Optional challenge string. If empty, value from $_POST will be used
+     * @param bool|string $captcha_response Optional response string. If empty, value from $_POST will be used
      * @throws Exception
      * @return Response
      */
@@ -197,11 +257,11 @@ class Captcha
 
         $process = $this->process(
             array(
-                    'privatekey' => $this->getPrivateKey(),
-                    'remoteip' => $_SERVER['REMOTE_ADDR'],
-                    'challenge' => $captcha_challenge,
-                    'response' => $captcha_response
-                )
+                'privatekey' => $this->getPrivateKey(),
+                'remoteip' => $this->getRemoteIp(),
+                'challenge' => $captcha_challenge,
+                'response' => $captcha_response
+            )
         );
 
         $answers = explode("\n", $process [1]);
@@ -272,6 +332,35 @@ class Captcha
         $uri = substr($uri, 0, strlen($uri)-1);
 
         return $uri;
+    }
+
+    /**
+     * Returns a boolean indicating if a theme name is valid
+     *
+     * @param string $theme
+     * @return bool
+     */
+    protected static function isValidTheme($theme)
+    {
+        return (bool) in_array($theme, self::$themes);
+    }
+
+    /**
+     * Set a reCaptcha theme
+     *
+     * @param string $theme
+     * @throws Exception
+     * @see https://developers.google.com/recaptcha/docs/customization
+     */
+    public function setTheme($theme)
+    {
+        if (!self::isValidTheme($theme)) {
+            throw new Exception(
+                'Theme ' . $theme . ' is not valid. Please use one of [' . join(', ', self::$themes) . ']'
+            );
+        }
+
+        $this->theme = $theme;
     }
 }
 
