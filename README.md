@@ -1,6 +1,8 @@
 reCaptcha-PHP-5 (v2.0.0)
 ==========================
 
+[![Latest Stable Version](https://poser.pugx.org/recaptcha/php5/v/stable)](https://packagist.org/packages/recaptcha/php5) [![Total Downloads](https://poser.pugx.org/recaptcha/php5/downloads)](https://packagist.org/packages/recaptcha/php5) [![License](https://poser.pugx.org/recaptcha/php5/license)](https://packagist.org/packages/recaptcha/php5)
+
 **If you are using the reCaptcha field on any of your forms and are currently using global keys, you will need to set up a Site Key and a Private Key for each site where you use the reCaptcha field.**
 
 A properly coded PHP 5 reCaptcha class that will allow you to interact with Google's
