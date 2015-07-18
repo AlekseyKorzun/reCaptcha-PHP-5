@@ -1,112 +1,262 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-<meta charset="utf-8">
-<title>phpDocumentor » \Captcha\Captcha</title>
-<meta name="author" content="Mike van Riel">
-<meta name="description" content="">
-<link href="../css/template.css" rel="stylesheet" media="all">
-<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
-<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
-</head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta charset="utf-8"/>
+    <title>    API Documentation &raquo; \Captcha\Captcha
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+            <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
 <body>
-<div class="navbar navbar-fixed-top">
-<div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
-<li class="dropdown">
-<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
-                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
-<li><a>Packages</a></li>
-<li><a href="../packages/library.html"><i class="icon-folder-open"></i> library</a></li>
-</ul>
-</li>
-<li class="dropdown" id="charts-menu">
-<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
-                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
-</li>
-<li class="dropdown" id="reports-menu">
-<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
-                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
-<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">3</span></a></li>
-<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul></ul></a></li>
-<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
-                <span class="label label-info">0</span></a></li>
-</ul>
-</li>
-</ul></div>
-</div></div>
-<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
-</div>
-<div id="___" class="container">
-<noscript><div class="alert alert-warning">
-                            Javascript is disabled; several features are only available
-                            if Javascript is enabled.
-                        </div></noscript>
-<div class="row">
-<div class="span4">
-<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
-<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
-</div>
-<ul class="side-nav nav nav-list">
-<li class="nav-header">
-<i class="icon-custom icon-method"></i> Methods
-                    <ul>
-<li class="method public "><a href="#method_check" title="check :: Checks and validates user's response"><span class="description">Checks and validates user's response</span><pre>check()</pre></a></li>
-<li class="method public "><a href="#method_getError" title="getError :: Retrieve currently set error"><span class="description">Retrieve currently set error</span><pre>getError()</pre></a></li>
-<li class="method public "><a href="#method_getPrivateKey" title="getPrivateKey :: Retrieve currently set private key"><span class="description">Retrieve currently set private key</span><pre>getPrivateKey()</pre></a></li>
-<li class="method public "><a href="#method_getPublicKey" title="getPublicKey :: Retrieve currently set public key"><span class="description">Retrieve currently set public key</span><pre>getPublicKey()</pre></a></li>
-<li class="method public "><a href="#method_html" title="html :: Generates reCaptcha form to output to your end user"><span class="description">Generates reCaptcha form to output to your end user</span><pre>html()</pre></a></li>
-<li class="method public "><a href="#method_setError" title="setError :: Set public key"><span class="description">Set public key</span><pre>setError()</pre></a></li>
-<li class="method public "><a href="#method_setPrivateKey" title="setPrivateKey :: Set private key"><span class="description">Set private key</span><pre>setPrivateKey()</pre></a></li>
-<li class="method public "><a href="#method_setPublicKey" title="setPublicKey :: Set public key"><span class="description">Set public key</span><pre>setPublicKey()</pre></a></li>
-</ul>
-</li>
-<li class="nav-header protected">» Protected
-                    <ul>
-<li class="method protected "><a href="#method_encode" title="encode :: Construct encoded URI string from an array"><span class="description">Construct encoded URI string from an array</span><pre>encode()</pre></a></li>
-<li class="method protected "><a href="#method_process" title="process :: Make a signed validation request to reCaptcha's servers"><span class="description">Make a signed validation request to reCaptcha's servers</span><pre>process()</pre></a></li>
-</ul>
-</li>
-<li class="nav-header">
-<i class="icon-custom icon-property"></i> Properties
-                    <ul></ul>
-</li>
-<li class="nav-header protected">» Protected
-                    <ul>
-<li class="property protected "><a href="#property_error" title="$error :: Custom error message to return"><span class="description"></span><pre>$error</pre></a></li>
-<li class="property protected "><a href="#property_privateKey" title="$privateKey :: Private key"><span class="description"></span><pre>$privateKey</pre></a></li>
-<li class="property protected "><a href="#property_publicKey" title="$publicKey :: Public key"><span class="description"></span><pre>$publicKey</pre></a></li>
-</ul>
-</li>
-<li class="nav-header">
-<i class="icon-custom icon-constant"></i> Constants
-                    <ul>
-<li class="constant  "><a href="#constant_SERVER" title="SERVER :: reCaptcha's API server"><span class="description">reCaptcha's API server</span><pre>SERVER</pre></a></li>
-<li class="constant  "><a href="#constant_VERIFY_SERVER" title="VERIFY_SERVER :: reCaptcha's verify server"><span class="description">reCaptcha's verify server</span><pre>VERIFY_SERVER</pre></a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="span8">
-<a id="\Captcha\Captcha"></a><ul class="breadcrumb">
-<li>
-<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
-</li>
-<li><a href="../namespaces/Captcha.html">Captcha</a></li>
-<li class="active">
-<span class="divider">\</span><a href="../classes/Captcha.Captcha.html">Captcha</a>
-</li>
-</ul>
-<div class="element class">
-<p class="short_description">Copyright (c) 2012, Aleksey Korzun <al.ko@webfoundation.net>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">API Documentation</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                    <li><a>Namespaces</a></li>
+                                                                        <li><a href="../namespaces/Captcha.html">Captcha</a></li>
+                                                                                                                                </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            <div class="row">
+        <div class="span4">
+                    <span class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
+    </span>
+    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                    <li class="method public">
+        <a href="#method_setPublicKey" title="setPublicKey :: Set public key">
+            <span class="description">Set public key</span><pre>setPublicKey</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getPublicKey" title="getPublicKey :: Retrieve currently set public key">
+            <span class="description">Retrieve currently set public key</span><pre>getPublicKey</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_setPrivateKey" title="setPrivateKey :: Set private key">
+            <span class="description">Set private key</span><pre>setPrivateKey</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getPrivateKey" title="getPrivateKey :: Retrieve currently set private key">
+            <span class="description">Retrieve currently set private key</span><pre>getPrivateKey</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_setRemoteIp" title="setRemoteIp :: Set remote IP">
+            <span class="description">Set remote IP</span><pre>setRemoteIp</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getRemoteIp" title="getRemoteIp :: Get remote IP">
+            <span class="description">Get remote IP</span><pre>getRemoteIp</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_setError" title="setError :: Set error string">
+            <span class="description">Set error string</span><pre>setError</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_getError" title="getError :: Retrieve currently set error">
+            <span class="description">Retrieve currently set error</span><pre>getError</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_html" title="html :: Generates reCaptcha form to output to your end user">
+            <span class="description">Generates reCaptcha form to output to your end user</span><pre>html</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_check" title="check :: Checks and validates user&#039;s response">
+            <span class="description">Checks and validates user&#039;s response</span><pre>check</pre>
+        </a>
+    </li>
+
+                                                                                                                                                                                                                                                                                                                                        <li class="method public">
+        <a href="#method_setTheme" title="setTheme :: Set widget theme">
+            <span class="description">Set widget theme</span><pre>setTheme</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_setSize" title="setSize :: Set widget size">
+            <span class="description">Set widget size</span><pre>setSize</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_setType" title="setType :: Set widget type">
+            <span class="description">Set widget type</span><pre>setType</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_setTabIndex" title="setTabIndex :: Set widgets tab index">
+            <span class="description">Set widgets tab index</span><pre>setTabIndex</pre>
+        </a>
+    </li>
+
+                                                </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                    <li class="method protected">
+                            <a href="#method_process" title="process :: Make a signed validation request to reCaptcha&#039;s servers">
+                                <span class="description">Make a signed validation request to reCaptcha&#039;s servers</span><pre>process</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method protected">
+                            <a href="#method_isValidTheme" title="isValidTheme :: Returns a boolean indicating if a theme name is valid">
+                                <span class="description">Returns a boolean indicating if a theme name is valid</span><pre>isValidTheme</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method protected">
+                            <a href="#method_isValidSize" title="isValidSize :: Returns a boolean indicating if a widget size is valid">
+                                <span class="description">Returns a boolean indicating if a widget size is valid</span><pre>isValidSize</pre>
+                            </a>
+                        </li>
+                                                                                <li class="method protected">
+                            <a href="#method_isValidType" title="isValidType :: Returns a boolean indicating if a widget type is valid">
+                                <span class="description">Returns a boolean indicating if a widget type is valid</span><pre>isValidType</pre>
+                            </a>
+                        </li>
+                                                                                                                                                                                                </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                                <li class="constant ">
+                    <a href="#constant_SERVER" title="SERVER :: reCaptcha&#039;s API server">
+                        <span class="description">reCaptcha&#039;s API server</span><pre>SERVER</pre>
+                    </a>
+                </li>
+                                <li class="constant ">
+                    <a href="#constant_VERIFY_SERVER" title="VERIFY_SERVER :: reCaptcha&#039;s verify server">
+                        <span class="description">reCaptcha&#039;s verify server</span><pre>VERIFY_SERVER</pre>
+                    </a>
+                </li>
+                            </ul>
+        </li>
+    </ul>
+
+
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>Captcha</h1>
+                <small style="display: block; text-align: right">
+                                                        </small>
+                <p class="short_description">Copyright (c) 2015, Aleksey Korzun &lt;aleksey@webfoundation.net&gt;
 All rights reserved.</p>
-<div class="details">
-<div class="long_description"><p>Redistribution and use in source and binary forms, with or without
+                <div class="details">
+                    <div class="long_description">
+                        <p>Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:</p>
 
 <ol>
@@ -132,214 +282,1449 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.</p>
 
-<p>Proper library for reCaptcha service</p></div>
-<table class="table table-bordered">
-<tr>
-<th>author</th>
-<td><a href="mailto:al.ko@webfoundation.net">Aleksey Korzun</a></td>
-</tr>
-<tr>
-<th><code><a href="../classes/Captcha.Exception.html">\Captcha\Exception</a></code></th>
-<td></td>
-</tr>
-<tr>
-<th>package</th>
-<td><a href="../packages/library.html">library</a></td>
-</tr>
-</table>
-<h3>
-<i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_check"></a><div class="element clickable method public method_check" data-toggle="collapse" data-target=".method_check .collapse">
-<h2>Checks and validates user's response</h2>
-<pre>check(string $captcha_challenge, string $captcha_response) : <a href="../classes/Captcha.Response.html">\Captcha\Response</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$captcha_challenge</h4>
-<code>string</code><p>Optional challenge string. If empty, value from $_POST will be used</p>
+<p>Proper library for reCaptcha service</p>
+
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        author
+                                                                            </th>
+                                    <td>
+                                                                                <p>Aleksey Korzun <a href="&#109;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#97;&#x6c;&#101;&#107;&#x73;e&#121;&#x40;&#x77;&#101;&#x62;&#x66;&#111;&#117;&#x6e;&#100;&#97;&#x74;i&#111;&#x6e;&#x2e;&#110;&#x65;&#x74;">&#97;&#x6c;&#101;&#107;&#x73;e&#121;&#x40;&#x77;&#101;&#x62;&#x66;&#111;&#117;&#x6e;&#100;&#97;&#x74;i&#111;&#x6e;&#x2e;&#110;&#x65;&#x74;</a></p>
+
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        see
+                                                                            </th>
+                                    <td>
+                                                                                
+
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        throws
+                                                                            </th>
+                                    <td>
+                                                                                
+
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                <p>library</p>
+
+                                    </td>
+                                </tr>
+                                                                        </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method_setPublicKey"></a>
+                        <div class="element clickable method public method_setPublicKey" data-toggle="collapse" data-target=".method_setPublicKey .collapse">
+                            <h2>Set public key</h2>
+                            <pre>setPublicKey(string $key) : \Captcha\reCaptcha</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<div class="subelement argument">
-<h4>$captcha_response</h4>
-<code>string</code><p>Optional response string. If empty, value from $_POST will be used</p>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$key</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\Captcha\reCaptcha</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getPublicKey"></a>
+                        <div class="element clickable method public method_getPublicKey" data-toggle="collapse" data-target=".method_getPublicKey .collapse">
+                            <h2>Retrieve currently set public key</h2>
+                            <pre>getPublicKey() : string</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code><a href="../classes/Captcha.Exception.html">\Captcha\Exception</a></code></th>
-<td></td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code><a href="../classes/Captcha.Response.html">\Captcha\Response</a></code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setPrivateKey"></a>
+                        <div class="element clickable method public method_setPrivateKey" data-toggle="collapse" data-target=".method_setPrivateKey .collapse">
+                            <h2>Set private key</h2>
+                            <pre>setPrivateKey(string $key) : \Captcha\reCaptcha</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method_getError"></a><div class="element clickable method public method_getError" data-toggle="collapse" data-target=".method_getError .collapse">
-<h2>Retrieve currently set error</h2>
-<pre>getError() : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$key</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\Captcha\reCaptcha</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getPrivateKey"></a>
+                        <div class="element clickable method public method_getPrivateKey" data-toggle="collapse" data-target=".method_getPrivateKey .collapse">
+                            <h2>Retrieve currently set private key</h2>
+                            <pre>getPrivateKey() : string</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method_getPrivateKey"></a><div class="element clickable method public method_getPrivateKey" data-toggle="collapse" data-target=".method_getPrivateKey .collapse">
-<h2>Retrieve currently set private key</h2>
-<pre>getPrivateKey() : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setRemoteIp"></a>
+                        <div class="element clickable method public method_setRemoteIp" data-toggle="collapse" data-target=".method_setRemoteIp .collapse">
+                            <h2>Set remote IP</h2>
+                            <pre>setRemoteIp(string $ip) : \Captcha\reCaptcha</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method_getPublicKey"></a><div class="element clickable method public method_getPublicKey" data-toggle="collapse" data-target=".method_getPublicKey .collapse">
-<h2>Retrieve currently set public key</h2>
-<pre>getPublicKey() : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$ip</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\Captcha\reCaptcha</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getRemoteIp"></a>
+                        <div class="element clickable method public method_getRemoteIp" data-toggle="collapse" data-target=".method_getRemoteIp .collapse">
+                            <h2>Get remote IP</h2>
+                            <pre>getRemoteIp() : string</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method_html"></a><div class="element clickable method public method_html" data-toggle="collapse" data-target=".method_html .collapse">
-<h2>Generates reCaptcha form to output to your end user</h2>
-<pre>html() : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code><a href="../classes/Captcha.Exception.html">\Captcha\Exception</a></code></th>
-<td></td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setError"></a>
+                        <div class="element clickable method public method_setError" data-toggle="collapse" data-target=".method_setError .collapse">
+                            <h2>Set error string</h2>
+                            <pre>setError(string $error) : \Captcha\reCaptcha</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method_setError"></a><div class="element clickable method public method_setError" data-toggle="collapse" data-target=".method_setError .collapse">
-<h2>Set public key</h2>
-<pre>setError(string $error) : \Captcha\reCaptcha</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$error</h4>
-<code>string</code>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$error</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\Captcha\reCaptcha</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_getError"></a>
+                        <div class="element clickable method public method_getError" data-toggle="collapse" data-target=".method_getError .collapse">
+                            <h2>Retrieve currently set error</h2>
+                            <pre>getError() : string</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<h3>Returns</h3>
-<div class="subelement response"><code>\Captcha\reCaptcha</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_html"></a>
+                        <div class="element clickable method public method_html" data-toggle="collapse" data-target=".method_html .collapse">
+                            <h2>Generates reCaptcha form to output to your end user</h2>
+                            <pre>html() : string</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method_setPrivateKey"></a><div class="element clickable method public method_setPrivateKey" data-toggle="collapse" data-target=".method_setPrivateKey .collapse">
-<h2>Set private key</h2>
-<pre>setPrivateKey(string $key) : \Captcha\reCaptcha</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$key</h4>
-<code>string</code>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_check"></a>
+                        <div class="element clickable method public method_check" data-toggle="collapse" data-target=".method_check .collapse">
+                            <h2>Checks and validates user&#039;s response</h2>
+                            <pre>check(bool|string $captchaResponse = false) : \Captcha\Response</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<h3>Returns</h3>
-<div class="subelement response"><code>\Captcha\reCaptcha</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$captchaResponse</h4>
+                                                <code>bool|string</code><p><p>Optional response string. If empty, value from $_POST will be used</p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/Captcha.Response.html">\Captcha\Response</a></code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_process"></a>
+                        <div class="element clickable method protected method_process" data-toggle="collapse" data-target=".method_process .collapse">
+                            <h2>Make a signed validation request to reCaptcha&#039;s servers</h2>
+                            <pre>process(array $parameters) : string</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method_setPublicKey"></a><div class="element clickable method public method_setPublicKey" data-toggle="collapse" data-target=".method_setPublicKey .collapse">
-<h2>Set public key</h2>
-<pre>setPublicKey(string $key) : \Captcha\reCaptcha</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$key</h4>
-<code>string</code>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$parameters</h4>
+                                                <code>array</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_isValidTheme"></a>
+                        <div class="element clickable method protected method_isValidTheme" data-toggle="collapse" data-target=".method_isValidTheme .collapse">
+                            <h2>Returns a boolean indicating if a theme name is valid</h2>
+                            <pre>isValidTheme(string $theme) : bool</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<h3>Returns</h3>
-<div class="subelement response"><code>\Captcha\reCaptcha</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$theme</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_isValidSize"></a>
+                        <div class="element clickable method protected method_isValidSize" data-toggle="collapse" data-target=".method_isValidSize .collapse">
+                            <h2>Returns a boolean indicating if a widget size is valid</h2>
+                            <pre>isValidSize(string $size) : bool</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method_encode"></a><div class="element clickable method protected method_encode" data-toggle="collapse" data-target=".method_encode .collapse">
-<h2>Construct encoded URI string from an array</h2>
-<pre>encode(array $parameters) : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$parameters</h4>
-<code>array</code>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$size</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_isValidType"></a>
+                        <div class="element clickable method protected method_isValidType" data-toggle="collapse" data-target=".method_isValidType .collapse">
+                            <h2>Returns a boolean indicating if a widget type is valid</h2>
+                            <pre>isValidType(string $type) : bool</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$type</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setTheme"></a>
+                        <div class="element clickable method public method_setTheme" data-toggle="collapse" data-target=".method_setTheme .collapse">
+                            <h2>Set widget theme</h2>
+                            <pre>setTheme(string $theme) : \Captcha\Captcha</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="method_process"></a><div class="element clickable method protected method_process" data-toggle="collapse" data-target=".method_process .collapse">
-<h2>Make a signed validation request to reCaptcha's servers</h2>
-<pre>process(array $parameters) : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$parameters</h4>
-<code>array</code>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    see
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$theme</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/Captcha.Captcha.html">\Captcha\Captcha</a></code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setSize"></a>
+                        <div class="element clickable method public method_setSize" data-toggle="collapse" data-target=".method_setSize .collapse">
+                            <h2>Set widget size</h2>
+                            <pre>setSize(string $size) : \Captcha\Captcha</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code><a href="../classes/Captcha.Exception.html">\Captcha\Exception</a></code></th>
-<td></td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    see
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$size</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/Captcha.Captcha.html">\Captcha\Captcha</a></code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setType"></a>
+                        <div class="element clickable method public method_setType" data-toggle="collapse" data-target=".method_setType .collapse">
+                            <h2>Set widget type</h2>
+                            <pre>setType(string $type) : \Captcha\Captcha</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<h3>
-<i class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_error"> </a><div class="element clickable property protected property_error" data-toggle="collapse" data-target=".property_error .collapse">
-<h2></h2>
-<pre>$error : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    see
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$type</h4>
+                                                <code>string</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/Captcha.Captcha.html">\Captcha\Captcha</a></code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            <a id="method_setTabIndex"></a>
+                        <div class="element clickable method public method_setTabIndex" data-toggle="collapse" data-target=".method_setTabIndex .collapse">
+                            <h2>Set widgets tab index</h2>
+                            <pre>setTabIndex(int $tabIndex) : \Captcha\Captcha</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description">
 </div>
-<a id="property_privateKey"> </a><div class="element clickable property protected property_privateKey" data-toggle="collapse" data-target=".property_privateKey .collapse">
-<h2></h2>
-<pre>$privateKey : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    throws
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    see
+                                                </th>
+                                                <td>
+                                                                                                                                                                    
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$tabIndex</h4>
+                                                <code>int</code><p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/Captcha.Captcha.html">\Captcha\Captcha</a></code><p>
+</p>
+                                                                    </div>
+                            </div>
+                        </div>
+                    
+                                            <h3><i class="icon-custom icon-constant"></i> Constants</h3>
+                                                    <a id="constant_SERVER"> </a>
+                            <div class="element clickable constant  constant_SERVER" data-toggle="collapse" data-target=".constant_SERVER .collapse">
+                                <h2>reCaptcha&#039;s API server</h2>
+                                <pre>SERVER</pre>
+                                <div class="labels">
+                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<a id="property_publicKey"> </a><div class="element clickable property protected property_publicKey" data-toggle="collapse" data-target=".property_publicKey .collapse">
-<h2></h2>
-<pre>$publicKey : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="constant_VERIFY_SERVER"> </a>
+                            <div class="element clickable constant  constant_VERIFY_SERVER" data-toggle="collapse" data-target=".constant_VERIFY_SERVER .collapse">
+                                <h2>reCaptcha&#039;s verify server</h2>
+                                <pre>VERIFY_SERVER</pre>
+                                <div class="labels">
+                                                                    </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<h3>
-<i class="icon-custom icon-constant"></i> Constants</h3>
-<a id="constant_SERVER"> </a><div class="element clickable constant  constant_SERVER" data-toggle="collapse" data-target=".constant_SERVER .collapse">
-<h2>reCaptcha's API server</h2>
-<pre>SERVER : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                            
+                                                                <h3><i class="icon-custom icon-property"></i> Properties</h3>
+                                                    <a id="property_remoteIp"> </a>
+                            <div class="element clickable property protected property_remoteIp" data-toggle="collapse" data-target=".property_remoteIp .collapse">
+                                <h2>The Remote IP Address</h2>
+                                <pre>remoteIp</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<a id="constant_VERIFY_SERVER"> </a><div class="element clickable constant  constant_VERIFY_SERVER" data-toggle="collapse" data-target=".constant_VERIFY_SERVER .collapse">
-<h2>reCaptcha's verify server</h2>
-<pre>VERIFY_SERVER : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_privateKey"> </a>
+                            <div class="element clickable property protected property_privateKey" data-toggle="collapse" data-target=".property_privateKey .collapse">
+                                <h2>Private key</h2>
+                                <pre>privateKey</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_publicKey"> </a>
+                            <div class="element clickable property protected property_publicKey" data-toggle="collapse" data-target=".property_publicKey .collapse">
+                                <h2>Public key</h2>
+                                <pre>publicKey</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_error"> </a>
+                            <div class="element clickable property protected property_error" data-toggle="collapse" data-target=".property_error .collapse">
+                                <h2>Custom error message to return</h2>
+                                <pre>error</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_theme"> </a>
+                            <div class="element clickable property protected property_theme" data-toggle="collapse" data-target=".property_theme .collapse">
+                                <h2>The theme we use. The default theme is light, but you can change it using setTheme()</h2>
+                                <pre>theme</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        see
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_type"> </a>
+                            <div class="element clickable property protected property_type" data-toggle="collapse" data-target=".property_type .collapse">
+                                <h2>Type of widget to display. The default type is image.</h2>
+                                <pre>type</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-<div class="row"><footer class="span12">
-            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a13</a> and<br>
-            generated on 2013-06-17T05:37:13+02:00.<br></footer></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        see
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_size"> </a>
+                            <div class="element clickable property protected property_size" data-toggle="collapse" data-target=".property_size .collapse">
+                                <h2>Size of widget to display. The default type is normal.</h2>
+                                <pre>size</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
 </div>
-</body>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        see
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_tabIndex"> </a>
+                            <div class="element clickable property protected property_tabIndex" data-toggle="collapse" data-target=".property_tabIndex .collapse">
+                                <h2>Optional tab index for input elements within the widget.</h2>
+                                <pre>tabIndex</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
+</div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        see
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_themes"> </a>
+                            <div class="element clickable property protected property_themes" data-toggle="collapse" data-target=".property_themes .collapse">
+                                <h2>An array of supported themes.</h2>
+                                <pre>themes</pre>
+                                <div class="labels">
+                                                                        <span class="label">static</span>                                </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
+</div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        see
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_types"> </a>
+                            <div class="element clickable property protected property_types" data-toggle="collapse" data-target=".property_types .collapse">
+                                <h2>An array of supported data types.</h2>
+                                <pre>types</pre>
+                                <div class="labels">
+                                                                        <span class="label">static</span>                                </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
+</div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        see
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <a id="property_sizes"> </a>
+                            <div class="element clickable property protected property_sizes" data-toggle="collapse" data-target=".property_sizes .collapse">
+                                <h2>An array of supported data sizes.</h2>
+                                <pre>sizes</pre>
+                                <div class="labels">
+                                                                        <span class="label">static</span>                                </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description">
+</div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        see
+                                                    </th>
+                                                    <td>
+                                                                                                                    
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                            <tr>
+                                                    <th>
+                                                        
+                                                    </th>
+                                                    <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                            </div>
+            </div>
+            <a id="\Captcha\Captcha"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../namespaces/Captcha.html">Captcha</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../classes/Captcha.Captcha.html">Captcha</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Sat, 18 Jul 2015 21:11:03 +0200.<br/>
+    </footer>
+    </body>
 </html>

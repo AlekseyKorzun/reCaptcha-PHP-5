@@ -5,7 +5,7 @@ use Captcha\Response;
 use Captcha\Exception;
 
 /**
- * Copyright (c) 2012, Aleksey Korzun <aleksey@webfoundation.net>
+ * Copyright (c) 2015, Aleksey Korzun <aleksey@webfoundation.net>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -35,6 +35,7 @@ use Captcha\Exception;
  * Proper library for reCaptcha service
  *
  * @author Aleksey Korzun <aleksey@webfoundation.net>
+ * @see http://www.google.com/recaptcha/intro/index.html
  * @throws Exception
  * @package library
  */
@@ -83,24 +84,68 @@ class Captcha
     protected $error;
 
     /**
-     * The theme we use. The default theme is red, but you can change it using setTheme()
+     * The theme we use. The default theme is light, but you can change it using setTheme()
      *
      * @var string
-     * @see https://developers.google.com/recaptcha/docs/customization
+     * @see https://developers.google.com/recaptcha/docs/display
      */
-    protected $theme = null;
+    protected $theme = 'light';
+
+    /**
+     * Type of widget to display. The default type is image.
+     *
+     * @var string
+     * @see https://developers.google.com/recaptcha/docs/display
+     */
+    protected $type = 'image';
+
+    /**
+     * Size of widget to display. The default type is normal.
+     *
+     * @var string
+     * @see https://developers.google.com/recaptcha/docs/display
+     */
+    protected $size = 'normal';
+
+    /**
+     * Optional tab index for input elements within the widget.
+     *
+     * @var int
+     * @see https://developers.google.com/recaptcha/docs/display
+     */
+    protected $tabIndex = 0;
 
     /**
      * An array of supported themes.
      *
      * @var string[]
-     * @see https://developers.google.com/recaptcha/docs/customization
+     * @see https://developers.google.com/recaptcha/docs/display
      */
     protected static $themes = array(
-        'red',
-        'white',
-        'blackglass',
-        'clean'
+        'light',
+        'dark'
+    );
+
+    /**
+     * An array of supported data types.
+     *
+     * @var string[]
+     * @see https://developers.google.com/recaptcha/docs/display
+     */
+    protected static $types = array(
+        'image',
+        'audio'
+    );
+
+    /**
+     * An array of supported data sizes.
+     *
+     * @var string[]
+     * @see https://developers.google.com/recaptcha/docs/display
+     */
+    protected static $sizes = array(
+        'normal',
+        'compact'
     );
 
     /**
@@ -169,7 +214,12 @@ class Captcha
         if ($this->remoteIp) {
             return $this->remoteIp;
         }
-        return $_SERVER['REMOTE_ADDR'];
+
+        if (isset($_SERVER['REMOTE_ADDR'])) {
+            return $_SERVER['REMOTE_ADDR'];
+        }
+
+        return null;
     }
 
     /**
@@ -206,50 +256,38 @@ class Captcha
             throw new Exception('You must set public key provided by reCaptcha');
         }
 
-        $error = ($this->getError() ? '&amp;error=' . $this->getError() : null);
-
-        $theme = null;
-
-        // If user specified a reCaptcha theme, output it as one of the options
-        if ($this->theme) {
-            $theme = '<script> var RecaptchaOptions = {theme: "' . $this->theme . '"};</script>';
-        }
-
-        return $theme . '<script type="text/javascript" src="' . self::SERVER . '/challenge?k=' . $this->getPublicKey() . $error . '"></script>
-
-        <noscript>
-            <iframe src="' . self::SERVER . '/noscript?k=' . $this->getPublicKey() . $error . '" height="300" width="500" frameborder="0"></iframe><br/>
-            <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
-            <input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
-        </noscript>';
+        return
+            '<script src="https://www.google.com/recaptcha/api.js" async defer></script>' .
+            '<div class="g-recaptcha" data-sitekey="' . $this->getPublicKey() . '" data-theme="' . $this->theme .
+            '" data-type="' . $this->type . '" data-size="' . $this->size . '" data-tabIndex="' . $this->tabIndex .
+            '"></div>';
     }
 
     /**
      * Checks and validates user's response
      *
-     * @param bool|string $captcha_challenge Optional challenge string. If empty, value from $_POST will be used
-     * @param bool|string $captcha_response Optional response string. If empty, value from $_POST will be used
+     * @param bool|string $captchaResponse Optional response string. If empty, value from $_POST will be used
      * @throws Exception
      * @return Response
      */
-    public function check($captcha_challenge = false, $captcha_response = false)
+    public function check($captchaResponse = false)
     {
         if (!$this->getPrivateKey()) {
             throw new Exception('You must set private key provided by reCaptcha');
         }
+
         // Skip processing of empty data
-        if (!$captcha_challenge && !$captcha_response) {
-            if (isset($_POST['recaptcha_challenge_field']) && isset($_POST['recaptcha_response_field'])) {
-                $captcha_challenge = $_POST['recaptcha_challenge_field'];
-                $captcha_response = $_POST['recaptcha_response_field'];
+        if (!$captchaResponse) {
+            if (isset($_POST['g-recaptcha-response'])) {
+                $captchaResponse = $_POST['g-recaptcha-response'];
             }
         }
 
-        // Instance of response object
+        // Create a new response object
         $response = new Response();
 
         // Discard SPAM submissions
-        if (strlen($captcha_challenge) == 0 || strlen($captcha_response) == 0) {
+        if (strlen($captchaResponse) == 0) {
             $response->setValid(false);
             $response->setError('Incorrect-captcha-sol');
             return $response;
@@ -257,20 +295,19 @@ class Captcha
 
         $process = $this->process(
             array(
-                'privatekey' => $this->getPrivateKey(),
+                'secret' => $this->getPrivateKey(),
                 'remoteip' => $this->getRemoteIp(),
-                'challenge' => $captcha_challenge,
-                'response' => $captcha_response
+                'response' => $captchaResponse
             )
         );
 
-        $answers = explode("\n", $process [1]);
+        $answer = @json_decode($process, true);
 
-        if (trim($answers[0]) == 'true') {
+        if (is_array($answer) && isset($answer['success']) && $answer['success']) {
             $response->setValid(true);
         } else {
             $response->setValid(false);
-            $response->setError($answers[1]);
+            $response->setError(serialize($answer));
         }
 
         return $response;
@@ -286,52 +323,15 @@ class Captcha
     protected function process($parameters)
     {
         // Properly encode parameters
-        $parameters = $this->encode($parameters);
+        $parameters = http_build_query($parameters);
 
-        $request  = "POST /recaptcha/api/verify HTTP/1.0\r\n";
-        $request .= "Host: " . self::VERIFY_SERVER . "\r\n";
-        $request .= "Content-Type: application/x-www-form-urlencoded;\r\n";
-        $request .= "Content-Length: " . strlen($parameters) . "\r\n";
-        $request .= "User-Agent: reCAPTCHA/PHP5\r\n";
-        $request .= "\r\n";
-        $request .= $parameters;
-
-        if (false == ($socket = @fsockopen(self::VERIFY_SERVER, 80))) {
-            throw new Exception('Could not open socket to: ' . self::VERIFY_SERVER);
+        // Make validation request
+        $response = @file_get_contents('https://' . self::VERIFY_SERVER . '/recaptcha/api/siteverify?' . $parameters);
+        if (!$response) {
+            throw new Exception('Unable to communicate with reCaptcha servers. Response: ' . serialize($response));
         }
 
-        fwrite($socket, $request);
-
-        $response = '';
-
-        while (!feof($socket) ) {
-            $response .= fgets($socket, 1160);
-        }
-
-        fclose($socket);
-
-        return explode("\r\n\r\n", $response, 2);
-    }
-
-    /**
-     * Construct encoded URI string from an array
-     *
-     * @param array $parameters
-     * @return string
-     */
-    protected function encode(array $parameters)
-    {
-        $uri = '';
-
-        if ($parameters) {
-            foreach ($parameters as $parameter => $value) {
-                $uri .= $parameter . '=' . urlencode(stripslashes($value)) . '&';
-            }
-        }
-
-        $uri = substr($uri, 0, strlen($uri)-1);
-
-        return $uri;
+        return $response;
     }
 
     /**
@@ -342,13 +342,36 @@ class Captcha
      */
     protected static function isValidTheme($theme)
     {
-        return (bool) in_array($theme, self::$themes);
+        return (bool)in_array($theme, self::$themes);
     }
 
     /**
-     * Set a reCaptcha theme
+     * Returns a boolean indicating if a widget size is valid
+     *
+     * @param string $size
+     * @return bool
+     */
+    protected static function isValidSize($size)
+    {
+        return (bool)in_array($size, self::$sizes);
+    }
+
+    /**
+     * Returns a boolean indicating if a widget type is valid
+     *
+     * @param string $type
+     * @return bool
+     */
+    protected static function isValidType($type)
+    {
+        return (bool)in_array($type, self::$types);
+    }
+
+    /**
+     * Set widget theme
      *
      * @param string $theme
+     * @return Captcha
      * @throws Exception
      * @see https://developers.google.com/recaptcha/docs/customization
      */
@@ -360,7 +383,72 @@ class Captcha
             );
         }
 
-        $this->theme = $theme;
+        $this->theme = (string)$theme;
+
+        return $this;
+    }
+
+    /**
+     * Set widget size
+     *
+     * @param string $size
+     * @return Captcha
+     * @throws Exception
+     * @see https://developers.google.com/recaptcha/docs/customization
+     */
+    public function setSize($size)
+    {
+        if (!self::isValidSize($size)) {
+            throw new Exception(
+                'Size ' . $size . ' is not valid. Please use one of [' . join(', ', self::$size) . ']'
+            );
+        }
+
+        $this->size = (string)$size;
+
+        return $this;
+    }
+
+    /**
+     * Set widget type
+     *
+     * @param string $type
+     * @return Captcha
+     * @throws Exception
+     * @see https://developers.google.com/recaptcha/docs/customization
+     */
+    public function setType($type)
+    {
+        if (!self::isValidSize($type)) {
+            throw new Exception(
+                'Type ' . $type . ' is not valid. Please use one of [' . join(', ', self::$type) . ']'
+            );
+        }
+
+        $this->type = (string)$type;
+
+        return $this;
+    }
+
+    /**
+     * Set widgets tab index
+     *
+     * @param int $tabIndex
+     * @return Captcha
+     * @throws Exception
+     * @see https://developers.google.com/recaptcha/docs/customization
+     */
+    public function setTabIndex($tabIndex)
+    {
+        if (!is_numeric($tabIndex)) {
+            throw new Exception(
+                'Tab index of ' . $tabIndex . ' is not valid.'
+            );
+        }
+
+        $this->tabIndex = (int)$tabIndex;
+
+        return $this;
     }
 }
 
